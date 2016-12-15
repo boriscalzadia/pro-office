@@ -18,7 +18,7 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('tcontrato_cliente',1);
             $table->string('nombre_cliente', 100);
-            $table->string('ncomercial_cliente', 100);
+            $table->string('ncomercial_cliente', 100)->nullable();
             $table->string('representante_cliente', 100);
             $table->string('oencargado_cliente', 100);
             $table->string('nit_cliente', 100)->unique();

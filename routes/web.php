@@ -12,12 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::group(['prefix' => 'clientes'], function(){
-	Route::get('view/{id}',[
-			'uses' => 'ClienteController@show',
-			'as'   => 'clientesViews'
+Route::group(['prefix' => 'admin'], function(){
+	Route::resource("clientes",'ClienteController');
+	Route::get("clientes/{id}/destroy",[
+		'uses'	=>	'ClienteController@destroy',
+		'as'	=>	'clientes.destroy'
 		]);
 });
