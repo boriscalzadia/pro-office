@@ -16,8 +16,8 @@ class CreateSalasTable extends Migration
         Schema::create('salas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('estado_sala');
-            $table->integer('cliente_id')->unsigned();
+            $table->unsignedInteger('estado_sala')->default(1);
+            $table->integer('cliente_id')->unsigned()->nullable();
             $table->string('nombre_sala',50);
             $table->unsignedInteger('capacidad_sala');
             $table->unsignedInteger('uadicional');

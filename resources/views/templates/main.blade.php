@@ -10,13 +10,16 @@
 <body class="grey darken-4">
 	@include('templates.navbar')
     <div class="container">
-    		@if (session()->has('flash_notification.message'))
+    		<div class="panel-body">
+    			@if (session()->has('flash_notification.message'))
 			    <div class="alert alert-{{ session('flash_notification.level') }}">
 			        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
 			        {!! session('flash_notification.message') !!}
 			    </div>
 			@endif
+			@include('templates.errors')
+    		</div>
             @yield('content')
     </div>
 	<script src="{{ asset('js/jquery.js')}}"></script>

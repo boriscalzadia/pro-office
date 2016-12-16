@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cliente;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -36,7 +37,7 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         
         $cliente = new Cliente($request->all());
@@ -80,21 +81,10 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClienteRequest $request, $id)
     {
         $cl = Cliente::find($id);
-        $cl->tcontrato_cliente=$request->tcontrato_cliente;
-        $cl->nombre_cliente=$request->nombre_cliente;
-        $cl->ncomercial_cliente=$request->ncomercial_cliente;
-        $cl->representante_cliente=$request->representante_cliente;
-        $cl->oencargado_cliente=$request->oencargado_cliente;
-        $cl->nit_cliente=$request->nit_cliente;
-        $cl->regfiscal_cliente=$request->regfiscal_cliente;
-        $cl->direccion_cliente=$request->direccion_cliente;
-        $cl->telpersonalizado_cliente=$request->telpersonalizado_cliente;
-        $cl->teldirecto_cliente=$request->teldirecto_cliente;
-        $cl->telextencion_cliente=$request->telextencion_cliente;
-        $cl->correo_cliente=$request->correo_cliente;
+        $cl->fill($request->all());
         $cl->save();
         flash('El cliente '.$cl->ncomercial_cliente.' se modifico con exito','info');
         return redirect()->route('clientes.index');
@@ -118,7 +108,7 @@ class ClienteController extends Controller
             flash("se ha eliminado el cliente " . $clientes->ncomercial_cliente . " de forma exitosa",'danger');
         }
         else{
-            flash("No se ha eliminado el cliente " . $clientes->ncomercial_cliente . " de forma exitosa :(",'danger');
+            flash("No se ha eliminado el cliente " . $clientes->ncomercial_cliente . " de forma exitosa <br>Si desea eliminar el cliente debe desocupar las salas",'danger');
         }
         return redirect()->route('clientes.index');
     }

@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{route('clientes.index')}}">Clientes</a></li>
-        <li><a href="#">Salas</a></li>
+        <li><a href="{{route('salas.index')}}">Salas</a></li>
         <li><a href="#">Servicios</a></li>
         <li><a href="#">Proveedores</a></li>
       </ul>

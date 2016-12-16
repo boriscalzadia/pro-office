@@ -21,4 +21,14 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses'	=>	'ClienteController@destroy',
 		'as'	=>	'clientes.destroy'
 		]);
+	Route::resource("salas",'SalasController');
+	Route::get("salas/{id}/destroy",[
+		'uses'	=>	'SalasController@destroy',
+		'as'	=>	'salas.destroy'
+		]);
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

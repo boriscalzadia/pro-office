@@ -3,6 +3,15 @@
 @section('content')
 <div class="container">
     <h4>Nuevo cliente</h4>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+        </ul>
+        </div>
+    @endif
     {!! Form::open(['route'=>'clientes.store', 'method' =>'POST']) !!}
     <div class="row">
     	<div class="form-group col-md-6">
