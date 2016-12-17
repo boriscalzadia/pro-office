@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{route('clientes.index')}}">Clientes</a></li>
         <li><a href="{{route('salas.index')}}">Salas</a></li>
-        <li><a href="#">Servicios</a></li>
+        <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
         <li><a href="#">Proveedores</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

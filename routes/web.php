@@ -26,6 +26,16 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses'	=>	'SalasController@destroy',
 		'as'	=>	'salas.destroy'
 		]);
+	Route::resource("servicios",'ServiciosController');
+	Route::get("servicios/{id}/destroy",[
+		'uses'	=>	'ServiciosController@destroy',
+		'as'	=>	'servicios.destroy'
+		]);
+	Route::resource("provedores",'PrveedoresController');
+	Route::get("provedores/{id}/destroy",[
+		'uses'	=>	'PrveedoresController@destroy',
+		'as'	=>	'provedores.destroy'
+		]);
 });
 
 

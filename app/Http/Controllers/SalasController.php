@@ -16,7 +16,7 @@ class SalasController extends Controller
      */
     public function index()
     {
-       $clientes = Sala::orderBy('id','ASC')->paginate(5);
+       $clientes = Sala::orderBy('id','ASC')->paginate(10);
         return view('salas.index')->with('salas',$clientes);
     }
 
