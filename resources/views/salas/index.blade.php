@@ -7,8 +7,8 @@
         <thead>
           <tr>
               <th>Nombre</th>
-              <th>Capacidad</th>
               <th>Estado</th>
+              <th>Capacidad</th>
               <th>Unidad Adicional</th>
               <th>Metros cuadrados</th>
               <th> Opciones</th>

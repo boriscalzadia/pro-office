@@ -6,15 +6,15 @@
     <div class="panel-heading">Nuevo Proveedor</div>
     <div class="panel-body">
     
-    {!! Form::open(['route'=>['servicios.update',$servicio->id], 'method' =>'PUT']) !!}
+    {!! Form::open(['route'=>['provvedores.update',$proveedor->id], 'method' =>'PUT']) !!}
         <div class="row">
             <div class="form-group col-md-6 col-sm-12 col-lg-6">
-                {!! Form::label('servicio','Nombre del tipo de servicio') !!}
-                {!! Form::text('servicio',$servicio->servicio,['class'=>'form-control','placeholder'=>'Nombre del servicio'])!!}
+                {!! Form::label('servicio_id','Nombre del tipo de proveedor') !!}
+                {!! Form::text('proveedor',$proveedor->proveedor,['class'=>'form-control','placeholder'=>'Nombre del proveedor'])!!}
             </div>
             <div class="form-group col-md-6 col-sm-12 col-lg-6">
                 {!! Form::label('fijo','Fijo') !!}
-                {!! Form::select('fijo', ['1' => 'Si', '0' => 'No'],$servicio->fijo,['class'=>'form-control']) !!}
+                {!! Form::select('fijo', ['1' => 'Si', '0' => 'No'],$proveedor->fijo,['class'=>'form-control']) !!}
             </div>
             <div class="col-sm-12">
                       {!! Form::submit('Crear', ['class' => 'btn btn-success ' ] ) !!}

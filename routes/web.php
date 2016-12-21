@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 	Route::resource("clientes",'ClienteController');
 	Route::get("clientes/{id}/destroy",[
 		'uses'	=>	'ClienteController@destroy',
@@ -36,9 +36,27 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses'	=>	'PrveedoresController@destroy',
 		'as'	=>	'provedores.destroy'
 		]);
+	Route::resource("usuarios",'UserController');
+	Route::get("usuarios/{id}/destroy",[
+		'uses'	=>	'UserController@destroy',
+		'as'	=>	'usuarios.destroy'
+		]);
 });
 
 
-Auth::routes();
+Route::get('login',[
+	'uses'	=>	'Auth\LoginController@showLoginForm',
+	'as'	=>	'auth.login'
+	]);
+
+Route::post('login',[
+	'uses'	=>	'Auth\LoginController@login',
+	'as'	=>	'auth.login'
+	]);
+
+Route::post('logout',[
+	'uses'	=>	'Auth\LoginController@logout',
+	'as'	=>	'auth.logout'
+	]);
 
 Route::get('/home', 'HomeController@index');
