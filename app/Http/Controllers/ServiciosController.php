@@ -94,13 +94,14 @@ class ServiciosController extends Controller
     {
         $servicios = Servicio::find($id);
         $permiso=true;
-        $pro = Proveedor::orderBy('id','ASC');
+        $pro = Proveedor::all();
         foreach ($pro as $ser) {
             if ($ser->servicio_id==$id) {
                 flash('El servicio "'.$servicios->servicio.'" no pudo ser eliminado por que el proveedor'.$ser->pnombre_proveedor.' '.$ser->papel_proveedor.' sigue activo','warning');
                 $permiso = false;
             }
         }
+        //dd($permiso);
         if ($permiso) {
             flash('El servicio "'.$servicios->servicio.'"ha sido eliminado con exito','warning');
             $servicios->delete();

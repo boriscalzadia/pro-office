@@ -13,7 +13,7 @@ class proveedores extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class proveedores extends FormRequest
     public function rules()
     {
         return [
-            //
+            'pnom_proveedor'        =>  'required',
+            'snom_proveedor'        =>  'required',
+            'papel_proveedor'       =>  'required',
+            'sapel_proveedor'       =>  'required',
+            'regfiscal_proveedor'   =>  'required|unique:proveedores',
+            'nit_proveedor'         =>  'required|unique:proveedores|min:17|max:17',
+            'tel_proveedor'         =>  'required|unique:proveedores|min:8|max:8',
+            'correo_proveedor'      =>  'required|unique:proveedores',
+            'servicio_id'           =>  'required|unique:proveedores'
         ];
     }
 }

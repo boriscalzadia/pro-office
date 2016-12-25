@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Proveedor;
-use Laracast\Flash\Flash;
+use Laracasts\Flash\Flash;
 use App\Http\Requests\proveedores;
 
+use App\Servicio;
 class PrveedoresController extends Controller
 {
     /**
@@ -16,8 +17,12 @@ class PrveedoresController extends Controller
      */
     public function index()
     {
-        $pro = Proveedor::odderBy('id','ASC')->paginate(10);
-        return view('proveedores.index')->with('$pros',$pro);
+        $pro = Proveedor::orderBy('id','ASC')->paginate(5);
+        $pros = DB::table('servicios')->get();
+        //dd($pros);
+        return view('proveedores.index')
+        ->with('pros',$pro)
+        ->with('ser',$pros);
     }
 
     /**
@@ -27,7 +32,18 @@ class PrveedoresController extends Controller
      */
     public function create()
     {
-        return view('proveedores.create');
+        //$servicios = DB::table('servicios')->pluck('servicio', 'id');
+        $users = DB::table('servicios')->whereNotIn('id', function($q){
+                    $q->select('servicio_id')->from('ProveedorES');
+                })->pluck('servicio', 'id');
+        //dd($users->all());
+        if($users->all() == null||isset($user)){
+            return view('proveedores.salas');
+        }
+        else{
+            return view('proveedores.create')->with("ser",$users);
+        }
+        //return view('proveedores.create')->with("ser",$users);
     }
 
     /**
@@ -38,10 +54,11 @@ class PrveedoresController extends Controller
      */
     public function store(proveedores $request)
     {
+        //dd($request);
         $pro = new Proveedor($request->all());
         $pro->save();
-        Flash::success("El proveedor '".$pro->pnombre_proveedor.' '.$pro->papel_proveedor."'");
-        return redirect()->route('proveedor.index');
+        flash("El proveedor '".$pro->pnombre_proveedor.' '.$pro->papel_proveedor."'",'success');
+        return redirect()->route('provedores.index');
     }
 
     /**
@@ -93,6 +110,6 @@ class PrveedoresController extends Controller
         $pro = Proveedor::find($id);
         $pro->delete();
         flash('El proveedor "'.$pro->pnombre_proveedor.' '.$pro->papel_proveedor.' se ha eliminado de forma correcta','danger');
-        return redirect()->route('proveedor.index');
+        return redirect()->route('provedores.index');
     }
 }

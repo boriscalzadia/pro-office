@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Cliente;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\ClienteRequest;
+use Illuminate\Support\Facades\DB;
+use App\Sala;
 
 class ClienteController extends Controller
 {
@@ -54,12 +56,36 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
+        $users = DB::table('salas')->where('cliente_id', NULL)->pluck('nombre_sala', 'id');
+        $salaso = DB::table('salas')->where('cliente_id', $id)->get();
         $cliente = Cliente::find($id);
-        $cliente->salas;
-        $cliente->documentos;
-        $cliente->serviadd;
-        //dd($cliente);
-        return view('welcome',['clientes'=>$cliente]);
+        //dd($salaso);
+        return view('clientes.salas') ->with('salas',$users) ->with('cliente',$cliente) ->with('salaso',$salaso);
+    }
+    public function asisala(Request $request, $id)
+    {
+        $cliente = Cliente::find($id);
+        $sala = Sala::find($request->id);
+        $sala->cliente_id = $id;
+        $sala->estado_sala = 0;
+        $sala->save();
+        Flash::success("El cliente " . $cliente->ncomercial_cliente . " fue asignado a la sala '".$sala->nombre_sala."' Exitosamente");
+        return redirect()->route('clientes.index');
+        //dd($sala);
+    }
+    public function desocupar(Request $request, $id)
+    {
+        $salasdes = "";
+        $salas = $request->id;
+        for ($i=0; $i < count($request->id) ; $i++) { 
+            $sal = Sala::find($salas[$i]);
+            $sal->cliente_id = NULL;
+            $sal->estado_sala = 1;
+            $sal->save();
+            $salasdes = $salasdes.', '.$sal->nombre_sala;
+        }
+        flash("se desocuparon las salas '".$salasdes."' con exito",'success');
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -81,7 +107,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClienteRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $cl = Cliente::find($id);
         $cl->fill($request->all());

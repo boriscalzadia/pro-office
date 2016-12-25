@@ -71,7 +71,7 @@
                   </h4>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button><a href="{{route('clientes.show',$element->id)}}" class="btn btn-info">Asignar</a>
                 </div>
               </div>
             </div>
