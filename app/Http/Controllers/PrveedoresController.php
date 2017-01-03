@@ -81,7 +81,16 @@ class PrveedoresController extends Controller
     public function edit($id)
     {
         $pro = Proveedor::find($id);
-        return view('salas.edit')->with('pros',$pro);
+        $users = DB::table('servicios')->whereNotIn('id', function($q){
+                    $q->select('servicio_id')->from('ProveedorES');
+                })->pluck('servicio', 'id');
+        //dd($users->all());
+        if($users->all() == null||isset($user)){
+            return view('proveedores.salas');
+        }
+        else{
+            return view('proveedores.edit')->with("ser",$users)->with('prov',$pro);
+        }
     }
 
     /**
@@ -91,12 +100,13 @@ class PrveedoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(proveedores $request, $id)
+    public function update(Request $request, $id)
     {
         $pro = Proveedor::find($id);
-        $pro = fill($request->all());
+        $pro->fill($request->all());
         $pro->save();
         flash('El proveedor se "'.$pro->pnombre_proveedor.' '.$pro->papel_proveedor.'" ha actualiado','info');
+        return redirect()->route('provedores.index');
     }
 
     /**

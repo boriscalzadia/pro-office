@@ -32,6 +32,7 @@
             <td>
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash"></span></a>
               <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#s{{ $element->id }}" ><span class="glyphicon glyphicon-user"></span></a>
+              <a href="{{route(detalle.edit)}}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
               <a href="{{ route('salas.edit', $element->id) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
             </td>
           </tr>

@@ -19,7 +19,12 @@
                         @else
                             <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
                             <li><a href="{{route('clientes.index')}}">Clientes</a></li>
-                            <li><a href="{{route('salas.index')}}">Salas</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Salas <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{route('salas.index')}}">Administrar Salas</a></li>
+                                    <li><a href="{{route('inmuebles.index')}}">Administrar Inmubles</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
                             <li><a href="{{ route('provedores.index')}}">Proveedores</a></li>
                             <li class="dropdown">
