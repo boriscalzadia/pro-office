@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+use Illuminate\Support\Facades\DB;
 use App\Sala;
+use App\Inmueble;
+use App\DetallesSala;
 use App\Http\Requests\SalasRequest;
 
 class SalasController extends Controller
@@ -28,6 +31,91 @@ class SalasController extends Controller
     public function create()
     {
        return view('salas.cretae');
+    }
+    public function asignar(Request $request,$id)
+    {
+       $sala = Sala::find($id);
+       $disp = DB::table('detalles_salas')->select(DB::raw("SUM(inmueble_cant) as disp"))->where('inmueble_id', $request->inmueble_id)->get();
+       $cantidad = DB::table('inmuebles')->select('cantidad','nombre')->where('id',$request->inmueble_id)->get();
+       $limite = $cantidad[0]->cantidad-$disp[0]->disp;
+       $nlimite = $limite-$request->cantidad;
+       if ($limite>=0&&$nlimite>=0) {
+           $detalle = new DetallesSala;
+           $detalle->sala_id=$id;
+           $detalle->inmueble_id=$request->inmueble_id;
+           $detalle->inmueble_cant = $request->cantidad;
+           $detalle->save();
+           flash('Se agregaron con exito '.$request->cantidad.' '.$cantidad[0]->nombre.' a la sala '.$sala->nombre_sala,"success");
+       }
+       else{
+            flash('El limite de cantidad para el inmueble "'.$cantidad[0]->nombre.'" es de '.$limite,"warning");
+       }
+       //dd($cantidad->all());
+       return redirect()->route('salas.amueblar',$id);
+    }
+
+    public function administramuebles(Request $request,$id)
+    { 
+        // $datos;
+        // for ($i=0; $i <count($request->cantidad) ; $i++) { 
+        //     $datos[$i]= array('id' => $request->inmueble_id[$i] , 'cantidad'=>$request->cantidad[$i] );
+        // }
+        // foreach ($datos as $key) {
+        //     $disp = DB::table('detalles_salas')->select(DB::raw("SUM(inmueble_cant) as disp"))->where([
+        //         ['inmueble_id',"=", $request->inmueble_id[$i]],
+        //         ['sala_id',"<>",$id]
+        //         ])->get();
+        //     $cantidad = DB::table('inmuebles')->select('cantidad','nombre')->where('id',$key['id'])->get();
+        //     $limite = $cantida -$disp[0]->disp;
+        //     $nlimite = $limite-$request->cantidad[$i];
+        //     if ($limite>=0&&$nlimite>=0) {
+        //             $detalle = DetallesSala::where([
+        //             ['inmueble_id',"=", $request->inmueble_id[$i]],
+        //             ['sala_id',"=",$id]
+        //             ])->pluck('id');
+        //             $new = DetallesSala::find($detalle[0]);
+        //             $new->inmueble_cant = $request->cantidad[$i];
+        //             //$new->save();
+        //             flash('Se modifico con exito '.$request->cantidad[$i].' '.$cantidad[$i]->nombre,"success");
+        //        }
+        //        else{
+        //             flash('El limite de cantidad para el inmueble "'.$cantidad[$i]->nombre.'" es de '.$limite,"warning");
+        //        }
+        // }
+       for ($i=0; $i < count($request->cantidad) ; $i++) { 
+        $disp = DB::table('detalles_salas')->select(DB::raw("SUM(inmueble_cant) as disp"))->where([
+            ['inmueble_id',"=", $request->inmueble_id[$i]],
+            ['sala_id',"<>",$id]
+            ])->get();
+        $cantidad = DB::table('inmuebles')->select('cantidad','nombre')->where('id',$request->inmueble_id[$i])->get();
+        $limite = $cantidad[0]->cantidad -$disp[0]->disp;
+        $nlimite = $limite-$request->cantidad[$i];
+        if ($limite>=0&&$nlimite>=0) {
+                $detalle = DetallesSala::where([
+                ['inmueble_id',"=", $request->inmueble_id[$i]],
+                ['sala_id',"=",$id]
+                ])->pluck('id');
+                $new = DetallesSala::find($detalle[0]);
+                $new->inmueble_cant = $request->cantidad[$i];
+                $new->save();
+                flash('Se modifico con exito el inmuebles'.$cantidad[0]->nombre,"success");
+           }
+           else{
+                flash('El limite de cantidad para el inmueble "'.$cantidad[$i]->nombre.'" es de '.$limite,"warning");
+           }
+       }
+       return redirect()->route('salas.amueblar',$id);
+    }
+
+    public function amueblar($id)
+    {
+        $detalle = Inmueble::all();
+        $sala = $id;
+        $users = DB::table('detalles_salas')->where('sala_id', $id)->get();
+        $ids = DB::table('detalles_salas')->where('sala_id', $id)->pluck('inmueble_id');
+        $disp = DB::table('inmuebles')->whereNotIn('id', $ids)->pluck('nombre','id');
+        return view('salas.inmueble')->with('inmuebles',$detalle)->with('detalles',$users)->with('disp',$disp)->with('sala',$sala);
+        //dd($detalle);
     }
 
     /**

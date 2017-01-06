@@ -30,10 +30,9 @@
             <td>{{ $element->uadicional}}</td>
             <td>{{ $element->mts2_sala}}</td>
             <td>
-              <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash"></span></a>
-              <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#s{{ $element->id }}" ><span class="glyphicon glyphicon-user"></span></a>
-              <a href="{{route(detalle.edit)}}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
-              <a href="{{ route('salas.edit', $element->id) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></span></a>
+              <a href="{{ route('salas.edit', $element->id) }}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="{{route('salas.amueblar',$element->id)}}" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Amueblar"><span class="glyphicon glyphicon-home"></span></a>
             </td>
           </tr>
           <div class="modal fade" id="e{{ $element->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

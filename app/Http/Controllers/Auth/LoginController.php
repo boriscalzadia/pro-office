@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -39,6 +39,12 @@ class LoginController extends Controller
 
     protected function showLoginForm()
     {
-        return view('auth.login');
+        $user = User::all();
+        if(count($user->all())>0){
+            return view('auth.login');
+        }
+        else{
+            return redirect()->route('usuarios.register');
+        }
     }
 }

@@ -22,7 +22,6 @@ class ClienteController extends Controller
         $clientes = Cliente::orderBy('id','ASC')->paginate(5);
         return view('clientes.index')->with('clientes',$clientes);
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sala;
+use \App\DetallesSala;
 
 class DetalleSalasController extends Controller
 {
@@ -13,7 +15,9 @@ class DetalleSalasController extends Controller
      */
     public function index()
     {
-        //
+        // $salas = Sala::orderBy('id','ASC')->paginate(5);
+        // $detalles = DetallesSala::orderBy('id','ASC')->paginate(5);
+        // return view('detalles.index')->with('salas',$salas)->with('detalles',$detalles);
     }
 
     /**

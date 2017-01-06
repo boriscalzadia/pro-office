@@ -34,6 +34,18 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses'	=>	'SalasController@destroy',
 		'as'	=>	'salas.destroy'
 		]);
+	Route::get("salas/{id}/amueblar",[
+		'uses'	=>	'SalasController@amueblar',
+		'as'	=>	'salas.amueblar'
+		]);
+	Route::post("salas/{id}/asignar",[
+		'uses'	=>	'SalasController@asignar',
+		'as'	=>	'salas.asignar'
+		]);
+	Route::post("salas/{id}/administramuebles",[
+		'uses'	=>	'SalasController@administramuebles',
+		'as'	=>	'salas.administramuebles'
+		]);
 	Route::resource("servicios",'ServiciosController');
 	Route::get("servicios/{id}/destroy",[
 		'uses'	=>	'ServiciosController@destroy',
@@ -54,6 +66,11 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses'	=>	'InmueblesController@destroy',
 		'as'	=>	'inmuebles.destroy'
 		]);
+	// Route::resource("detalles-salas",'DetalleSalasController');
+	// Route::get('detalles-salas/{id}/destroy',[
+	// 	'uses'	=>	'DetalleSalasController@destroy',
+	// 	'as'	=>	'detalles-salas.destroy'
+	// 	]);
 });
 
 
@@ -72,4 +89,11 @@ Route::post('logout',[
 	'as'	=>	'auth.logout'
 	]);
 
-Route::get('/home', 'HomeController@index');
+Route::get('register',[
+		'uses'	=>	'UserController@register',
+		'as'	=>	'usuarios.register'
+		]);
+Route::post('register',[
+		'uses'	=>	'UserController@stores',
+		'as'	=>	'usuarios.stores'
+		]);

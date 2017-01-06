@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="/">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,6 +23,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('salas.index')}}">Administrar Salas</a></li>
                                     <li><a href="{{route('inmuebles.index')}}">Administrar Inmubles</a></li>
+                                    {{-- <li><a href="{{route('detalles-salas.index')}}">Amueblar sala</a></li> --}}
                                 </ul>
                             </li>
                             <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
