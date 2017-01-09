@@ -54,7 +54,7 @@
 							</tbody>
 						</table>
 					@else
-						<h3>No hay inmuebles registrados</h3>
+						<h3>No hay muebles registrados</h3>
 					@endif
 				</div>
 			</div>
