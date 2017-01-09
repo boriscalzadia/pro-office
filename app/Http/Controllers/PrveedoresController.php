@@ -34,7 +34,7 @@ class PrveedoresController extends Controller
     {
         //$servicios = DB::table('servicios')->pluck('servicio', 'id');
         $users = DB::table('servicios')->whereNotIn('id', function($q){
-                    $q->select('servicio_id')->from('Proveedores');
+                    $q->select('servicio_id')->from('proveedores');
                 })->pluck('servicio', 'id');
         //dd($users->all());
         if($users->all() == null||isset($user)){
@@ -82,7 +82,7 @@ class PrveedoresController extends Controller
     {
         $pro = Proveedor::find($id);
         $users = DB::table('servicios')->whereNotIn('id', function($q){
-                    $q->select('servicio_id')->from('ProveedorES');
+                    $q->select('servicio_id')->from('proveedores');
                 })->pluck('servicio', 'id');
         //dd($users->all());
         if($users->all() == null||isset($user)){

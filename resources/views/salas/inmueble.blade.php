@@ -1,12 +1,12 @@
 @extends('templates.main')
-@section('tittle','lista de clientes')
+@section('tittle','lista de muebles de sala')
 @section('content')
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="panel panel-info">
-					<div class="panel-heading">Inmubeles de la sala</div>
+					<div class="panel-heading">Mubeles de la sala</div>
 					<div class="panel-body">
 					@if (count($detalles)>0)
 						<table class="table table-striped">
@@ -39,12 +39,12 @@
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-success">
-					<div class="panel-heading">Agregar inmueble</div>
+					<div class="panel-heading">Agregar mueble</div>
 					<div class="panel-body">
 					@if (count($disp)>0)
 						{!!Form::open(['route'=>['salas.asignar',$sala],'method'=>'POST'])!!}
 								<div class="form-group col-md-6">
-									{!!Form::label('nombre','Inmueble')!!}
+									{!!Form::label('nombre','mueble')!!}
 									{!!Form::select('inmueble_id',$disp,0,['class'=>'form-control'])!!}
 								</div>
 								<div class="form-group col-md-6 col-sm-12 col-lg-6">
@@ -56,7 +56,7 @@
 								</div>
 						{!!Form::close()!!}
 					@else
-						<h5>Esta sala ya cuenta con <strong>todos</strong> los inmuebles disponibles</h5>
+						<h5>Esta sala ya cuenta con <strong>todos</strong> los muebles disponibles</h5>
 					@endif
 						
 					</div>
@@ -64,7 +64,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-danger">
-					<div class="panel-heading">Editar inmuebles</div>
+					<div class="panel-heading">Editar muebles de la sala</div>
 					<div class="panel-body">
 						{!! Form::open(['route'=>['salas.administramuebles',$sala],'method'=>'post']) !!}
 							@foreach ($detalles as $elem)
