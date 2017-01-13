@@ -46,12 +46,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $users = new User();
-        $users->name= $request->name_us;
-        $users->email= $request->email_us;
+        $users = new User($request -> all());
         $users->password= bcrypt($request->password_us);
         $users->save();
-        flash('El usuario "'.$users->name.' se creo exitosamente',"success");
+        flash('El Usuario "'.$users->name.'" se creo exitosamente',"success");
         return redirect()->route('usuarios.index');
     }
 
@@ -67,9 +65,7 @@ class UserController extends Controller
     }
     public function stores(Request $request)
     {
-        $users = new User();
-        $users->name= $request->name_us;
-        $users->email= $request->email_us;
+        $users = new User($request ->all());
         $users->password= bcrypt($request->password_us);
         $users->save();
         flash('inicia session con tu usuario',"success");
@@ -83,8 +79,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = sala::find($id);
-        return view('usuarios.edit')->with('salas',$user);
+        $users = User::find($id);
+        return view('usuarios.edit')->with('user',$users);
     }
 
     /**
@@ -97,8 +93,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->fill($request->all());
-        $users->save();
+        $users-> name = $request ->name;
+        $users-> email = $request ->email;
+        $users-> type = $request ->type;
+        $users -> save(); 
         flash('El usuario "'.$users->name.' se modifico exitosamente',"info");
         return redirect()->route('usuarios.index');
     }
@@ -111,8 +109,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $salas = User::find($id);
-        $salas->delete();
+        $users = User::find($id);
+        $users-> delete();
         return redirect()->route('usuarios.index');
     }
 }

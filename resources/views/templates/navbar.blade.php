@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-     <img src="plugins/bootstrap/img/logo.png" class="img-rounded" alt="Pro-Office">
+     <img src="{{ asset('plugins/bootstrap/img/logo.png')}}" class="img-rounded" alt="Pro-Office">
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

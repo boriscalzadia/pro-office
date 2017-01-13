@@ -1,6 +1,8 @@
 @extends('templates.main')
 @section('tittle','Inicio de session')
 @section('content')
+
+
     {!! Form::open(['route'=>'auth.login','method'=>'POST']) !!}
         <div class="form-group col-md-12 col-sm-12 col-lg-12">
                 {!! Form::label('email','Nombre de usuario') !!}
