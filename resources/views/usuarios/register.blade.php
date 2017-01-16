@@ -6,16 +6,16 @@
   <div class="panel-body">
     	{!! Form::open(['route'=>'usuarios.stores', 'method' =>'POST']) !!}
     		<div class="form-group col-md-6 col-sm-12 col-lg-6">
-                {!! Form::label('name_us','Nombre del usuario') !!}
-                {!! Form::text('name_us',null,['class'=>'form-control','placeholder'=>'Nombre del usuario'])!!}
+                {!! Form::label('name','Nombre del usuario') !!}
+                {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre del usuario'])!!}
             </div>
             <div class="form-group col-md-6 col-sm-12 col-lg-6">
-                {!! Form::label('email_us','Correo del usuario') !!}
-                {!! Form::email('email_us',null,['class'=>'form-control','placeholder'=>'usuario@usuario.com'])!!}
+                {!! Form::label('email','Correo del usuario') !!}
+                {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'usuario@usuario.com'])!!}
             </div>
             <div class="form-group col-md-6 col-sm-12 col-lg-6">
-                {!! Form::label('password_us','Contraseña') !!}
-                {!! Form::password('password_us',['class'=>'form-control','placeholder'=>'**********'])!!}
+                {!! Form::label('password','Contraseña') !!}
+                {!! Form::password('password',['class'=>'form-control','placeholder'=>'**********'])!!}
             </div>
             <div class="form-group">
         {!! Form::label('type', 'Tipo')!!}

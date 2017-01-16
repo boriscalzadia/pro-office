@@ -1,31 +1,81 @@
 @extends('templates.main')
-@section('tittle','Crear Usuario')
+@section('tittle','Gestion de contratos')
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-6">
 			<div class="panel panel-info">
-				<div class="panel-heading">Salas que actualmente ocupa</div>
+				<div class="panel-heading">Contratos establecidos</div>
 				<div class="panel-body">
+				
 				@if (count($salaso)>0)
+					<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Sala</th>
+							<th>Precio</th>
+							<th>Fecha de Pago</th>
+						</tr>
+					</thead>
+					<tbody>
 					@foreach ($salaso as $sala)
-					<li>{{ $sala->nombre_sala }}</li>
+						<tr>
+							<td>{{$sala->nombre_sala}}</td>
+							<td>{{$sala->precio}}</td>
+							@foreach ($contratos as $contra)
+							@if ($contra->sala_id==$sala->id)
+								<td>{{$contra->fechapago}}</td>
+							@endif
+								
+							@endforeach
+							
+						</tr>
 					@endforeach
+					</tbody>
+				</table>
                 @else
                     <span>Ninguna</span>
                 @endif
 				</div>
 			</div>
 		</div>
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-md-6">
 			<div class="panel panel-success">
-			<div class="panel-heading">Asignar sala</div>
+			<div class="panel-heading">Nuevo contrato</div>
 			<div class="panel-body">
 				@if (count($salas)>0)
 					{{Form::open(['route'=>['clientes.asisala',$cliente->id],'method'=>'POST'])}}
 				<div class="form-group ">
 					{{Form::label('id','Elija la sala')}}
 					{{Form::select('id',$salas,null,['class'=>'form-control'])}}
+				</div>
+				@if ($cliente->tcontrato_cliente == "V")
+					<div class="form-group ">
+						{{Form::label('tipo','Tipo contrato')}}
+						{{Form::text('tipo','Virtual',['class'=>'form-control','disabled'=>'disabled'])}}
+					</div>
+					<div class="form-group">
+						{{Form::label('horas','Cantidad de horas')}}
+						{{Form::number('horas',null,['class'=>'form-control'])}}
+					</div>
+				@else
+					<div class="form-group ">
+						{{Form::label('tipo','Tipo contrato')}}
+						{{Form::text('tipo','Fisico',['class'=>'form-control','disabled'=>'disabled'])}}
+					</div>
+				@endif
+				
+				<div class="form-group ">
+					{{Form::label('fechaini','Fecha de Inicio')}}
+					{{Form::date('fechaini', \Carbon\Carbon::now(),['class'=>'form-control'])}}
+				</div>
+				<div class="form-group ">
+					{{Form::label('fechafin','Fecha de fin')}}
+					{{Form::date('fechafin', \Carbon\Carbon::now(),['class'=>'form-control'])}}
+				</div>
+				<div class="form-group ">
+					{{Form::label('fechapago','Fecha de Pago')}}
+					{{Form::number('fechapago', null,['class'=>'form-control','min'=>1,'max'=>\Carbon\Carbon::now()->daysInMonth,'required'])}}
 				</div>
 					{{Form::submit('asignar',['class'=>'btn btn-success'])}}
 				{{Form::close()}}

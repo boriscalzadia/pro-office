@@ -12,8 +12,8 @@
 	@include('templates.navbar')
     <div class="container">
     <div class="col-md-8 col-md-8-offset-2">
-    		<div class="panel-body">
-    			@if (session()->has('flash_notification.message'))
+		<div class="panel-body">
+			@if (session()->has('flash_notification.message'))
 			    <div class="alert alert-{{ session('flash_notification.level') }}">
 			        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
@@ -21,8 +21,8 @@
 			    </div>
 			@endif
 			@include('templates.errors')
-    		</div>
-            @yield('content')
+		</div>
+    	@yield('content')
     </div>
     </div>
     </div>

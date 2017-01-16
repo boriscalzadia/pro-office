@@ -47,7 +47,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = new User($request -> all());
-        $users->password= bcrypt($request->password_us);
+        $users->password= bcrypt($request->password);
         $users->save();
         flash('El Usuario "'.$users->name.'" se creo exitosamente',"success");
         return redirect()->route('usuarios.index');
@@ -65,8 +65,8 @@ class UserController extends Controller
     }
     public function stores(Request $request)
     {
-        $users = new User($request ->all());
-        $users->password= bcrypt($request->password_us);
+        $users = new User($request->all());
+        $users->password= bcrypt($request->password);
         $users->save();
         flash('inicia session con tu usuario',"success");
         return redirect('/');
@@ -93,10 +93,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users-> name = $request ->name;
-        $users-> email = $request ->email;
-        $users-> type = $request ->type;
-        $users -> save(); 
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->type = $request->type;
+        $users->save(); 
         flash('El usuario "'.$users->name.' se modifico exitosamente',"info");
         return redirect()->route('usuarios.index');
     }
@@ -110,7 +110,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $users = User::find($id);
-        $users-> delete();
+        $users->delete();
         return redirect()->route('usuarios.index');
     }
 }
