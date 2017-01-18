@@ -24,6 +24,10 @@
                 {!! Form::label('mts2_sala','Metros cuadrados ') !!}
                 {!! Form::number('mts2_sala',null,['class'=>'form-control','placeholder'=>'00.00'])!!}
             </div>
+            <div class="form-group col-md-6 col-sm-12 col-lg-6">
+                {!! Form::label('precio','Precio') !!}
+                {!! Form::text('precio',null,['class'=>'form-control','placeholder'=>'$20.00'])!!}
+            </div>
             <div class="col-sm-12">
                       {!! Form::submit('Crear', ['class' => 'btn btn-success ' ] ) !!}
             </div>

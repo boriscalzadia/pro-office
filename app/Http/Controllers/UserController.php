@@ -65,7 +65,11 @@ class UserController extends Controller
     }
     public function stores(Request $request)
     {
+<<<<<<< HEAD
         $users = new User($request ->all());
+=======
+        $users = new User($request->all());
+>>>>>>> 6de9318f3ed4cc1b16ebfab4eb9bbae1546f9c92
         $users->password= bcrypt($request->password);
         $users->save();
         flash('inicia session con tu usuario',"success");
@@ -93,10 +97,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users-> name = $request ->name;
-        $users-> email = $request ->email;
-        $users-> type = $request ->type;
-        $users -> save(); 
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->type = $request->type;
+        $users->save(); 
         flash('El usuario "'.$users->name.' se modifico exitosamente',"info");
         return redirect()->route('usuarios.index');
     }
@@ -110,7 +114,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $users = User::find($id);
-        $users-> delete();
+        $users->delete();
         return redirect()->route('usuarios.index');
     }
 }

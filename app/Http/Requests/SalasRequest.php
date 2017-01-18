@@ -24,7 +24,7 @@ class SalasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_sala'       =>  'unique:salas|min:4|max:50|required',
+            'nombre_sala'       =>  'unique:salas|min:3|max:50|required',
             'capacidad_sala'    =>  'min:1|max:10|required',
             'mts2_sala'         =>  'min:1|max:11|required'
 

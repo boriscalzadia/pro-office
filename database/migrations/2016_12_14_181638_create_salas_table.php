@@ -22,6 +22,7 @@ class CreateSalasTable extends Migration
             $table->unsignedInteger('capacidad_sala');
             $table->unsignedInteger('uadicional');
             $table->float('mts2_sala', 8, 2);
+            $table->double('precio',8,2);
             $table->timestamps();
             $table->foreign('cliente_id')->references('id')->on('clientes');
         });
