@@ -43,7 +43,7 @@ class ClienteController extends Controller
         
         $cliente = new Cliente($request->all());
         $cliente->save();
-        Flash::success("se ha registrado el cliente " . $cliente->ncomercial_cliente . " de forma exitosa");
+        Flash::success("se ha registrado el cliente " . $cliente->razon_cliente . " de forma exitosa");
         return redirect()->route('clientes.index');
     }
 
@@ -111,7 +111,7 @@ class ClienteController extends Controller
         $cl = Cliente::find($id);
         $cl->fill($request->all());
         $cl->save();
-        flash('El cliente '.$cl->ncomercial_cliente.' se modifico con exito','info');
+        flash('El cliente '.$cl->razon_cliente.' se modifico con exito','info');
         return redirect()->route('clientes.index');
     }
 
@@ -130,11 +130,12 @@ class ClienteController extends Controller
         if(count($clientes->salas)==0&&count($clientes->documentos)==0&&count($clientes->serviadd)==0)
         {
             $clientes->delete();
-            flash("se ha eliminado el cliente " . $clientes->ncomercial_cliente . " de forma exitosa",'danger');
+            flash("se ha eliminado el cliente " . $clientes->razon_cliente . " de forma exitosa",'danger');
         }
         else{
-            flash("No se ha eliminado el cliente " . $clientes->ncomercial_cliente . " de forma exitosa <br>Si desea eliminar el cliente debe desocupar las salas",'danger');
+            flash("No se ha eliminado el cliente " . $clientes->razon_cliente . " de forma exitosa <br>Si desea eliminar el cliente debe desocupar las salas",'danger');
         }
         return redirect()->route('clientes.index');
     }
 }
+

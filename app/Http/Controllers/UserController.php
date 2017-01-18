@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::orderBy('id','ASC')->paginate(5);
-        return view('usuarios.index')->with('users',$user);
+        return view('usuarios.index')->with('user',$user);
     }
 
     public function register(){
@@ -47,7 +47,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = new User($request -> all());
-        $users->password= bcrypt($request->password_us);
+        $users->password= bcrypt($request->password);
         $users->save();
         flash('El Usuario "'.$users->name.'" se creo exitosamente',"success");
         return redirect()->route('usuarios.index');
@@ -66,7 +66,7 @@ class UserController extends Controller
     public function stores(Request $request)
     {
         $users = new User($request ->all());
-        $users->password= bcrypt($request->password_us);
+        $users->password= bcrypt($request->password);
         $users->save();
         flash('inicia session con tu usuario',"success");
         return redirect('/');

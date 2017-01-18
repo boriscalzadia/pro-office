@@ -1,12 +1,12 @@
 @extends('templates.main')
-@section('tittle','lista de clientes')
+@section('tittle','Lista de Usuarios')
 @section('content')
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-            <div class="panel-heading">Lista de Usuarios</div>
+            <div class="panel panel-warning">
+            <div class="panel-heading"><h3>Lista de Usuarios</h3></div>
           
                 <div class="panel-body">
  <a href="{{ route('usuarios.create')}}" class="btn btn-info">Agregar usuarios</a>
@@ -16,16 +16,20 @@
           <tr>
               <th data-field="name">Nombre</th>
               <th data-field="name">Correo</th>
+              <th data-field="name"> Tipo de Usuario</th>
               <th data-fiekd="opciones"> Opciones</th>
           </tr>
         </thead>
 
         <tbody>
-        @foreach ($users as $element)
+        @foreach ($user as $element)
         	<tr>
             <td>{{ $element->name}}</td>
             <td>
               {{ $element->email}}
+            </td>
+            <td>
+              {{ $element->type}}
             </td>
             <td>
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash"></span></a>
@@ -58,5 +62,5 @@
   </div>
   </div>
   </div>
-      {!! $users->render() !!}
+      {!! $user->render() !!}
 @endsection

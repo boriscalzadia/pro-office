@@ -4,8 +4,8 @@
 	<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-            <div class="panel-heading"> <h4>Crear Usuario </h4> </div>
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3>Crear Usuario </h3> </div>
           
                 <div class="panel-body">
         {!! Form::open(['route' =>'usuarios.store', 'method'=>'POST']) !!}
@@ -17,7 +17,7 @@
 
         <div class="form-group">
             {!! Form::label('email', 'Correo Electronico')!!}
-            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder'=> 'example@example.com', 'required'])!!}
+            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder'=> 'ejemplo@ejemplo.com', 'required'])!!}
         </div>
 
         <div class="form-group">
