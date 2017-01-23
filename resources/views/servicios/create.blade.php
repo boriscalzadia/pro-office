@@ -13,8 +13,12 @@
                 {!! Form::text('servicio',null,['class'=>'form-control','placeholder'=>'Nombre del servicio'])!!}
             </div>
             <div class="form-group col-md-6 col-sm-12 col-lg-6">
-                {!! Form::label('fijo','Fijo') !!}
-                {!! Form::select('fijo', ['1' => 'Si', '0' => 'No'],null,['class'=>'form-control']) !!}
+                {!! Form::label('precio','Precio') !!}
+                {!! Form::number('precio', null,['class'=>'form-control','step'=>'any','required']) !!}
+            </div>
+            <div class="form-group col-md-6 col-sm-12 col-lg-6">
+                {!! Form::label('descripcion','Descripcion') !!}
+                {!! Form::text('descripcion', null,['class'=>'form-control','placeholder'=>'Descripcion del servicio']) !!}
             </div>
             <div class="col-sm-12">
                       {!! Form::submit('Crear', ['class' => 'btn btn-success ' ] ) !!}

@@ -9,7 +9,10 @@ use App\Http\Requests\ClienteRequest;
 use Illuminate\Support\Facades\DB;
 use App\Sala;
 use App\Contrato;
+use App\Servicio;
 use Carbon\Carbon;
+use App\ServiciosAdicionale;
+use App\detallecontrato;
 
 class ClienteController extends Controller
 {
@@ -58,12 +61,31 @@ class ClienteController extends Controller
     public function show($id)
     {
         $users = DB::table('salas')->where('cliente_id', NULL)->pluck('nombre_sala', 'id');
+        $serv = DB::table('servicios')->pluck('servicio', 'id');
         $salaso = DB::table('salas')->where('cliente_id', $id)->get();
         $contratos = DB::table('contratos')->where('cliente_id', $id)->get();
         //$contratos = Contrato::all();
+        $serpre = DB::table('detalle_contrato')->get();
+        $allserv = DB::table('servicios')->get();
+        $dt = Carbon::now();
+        $dt->day = 1;
+        $servicesadd = DB::table('servicios_adicionales')->where([
+                                    ['cliente_id','=',$id],
+                                    ['fecha','=',$dt->formatLocalized('%Y-%m-%d')]
+                                ])->get();
+        //dd($serpre->all());
+        //$fecactual = Carbon::now()->year.'-'.Carbon::now()->month.'-'.Carbon::now()->day;
         $cliente = Cliente::find($id);
-        //dd($contratos);
-        return view('clientes.salas') ->with('salas',$users) ->with('cliente',$cliente) ->with('salaso',$salaso) ->with('contratos',$contratos);
+        //dd($dt->formatLocalized('%Y-%m-%d'));
+        return  view('clientes.salas')
+                ->with('salas',$users)
+                ->with('cliente',$cliente)
+                ->with('salaso',$salaso)
+                ->with('contratos',$contratos)
+                ->with('servicio',$serv)
+                ->with('servcontros',$serpre)
+                ->with('allserv',$allserv)
+                ->with('serviadd',$servicesadd);
     }
     public function asisala(Request $request, $id)
     {
@@ -84,9 +106,35 @@ class ClienteController extends Controller
             'fechapago'     =>  $request->fechapago
         ];
         if (($inicio->diffInMonths($fin))>2) {
+            if(count($request->servicios)>0){
+                foreach ($request->servicios as $key) {
+                    $detalle = Servicio::where([
+                            ['id',"=", $key]
+                        ])->pluck('precio');
+                    $elem['pago']=$elem['pago']+$detalle[0];
+                    
+                }
+                //dd($request->servicios);
+            }
             $cont = new Contrato($elem);
             $sala->save();
             $cont->save();
+            
+            if(count($request->servicios)>0){
+                $contrato = Contrato::where([
+                            ['cliente_id',"=", $elem['cliente_id']],
+                            ['sala_id','=',$elem['sala_id']]
+                        ])->pluck('id');
+                //dd($contrato[0]);
+                foreach ($request->servicios as $key) {
+                
+                $detalle_contrato = ['contrato_id' => $contrato[0], 'servicio_id'=>$key ];
+                $detcont = new detallecontrato($detalle_contrato);
+                $detcont->save();
+                //dd($detcont);
+                }
+            }
+
             flash("El contrato se llevo a acabo exitosamente el cliente '".$cliente->ncomercial_cliente."' pagara una cuota base de $".$cont->pago." por la sala '".$sala->nombre_sala."' ademas de los gastos por otros servicios en el mes el dia '".$cont->fechapago."' de cada mes",'success');
             return redirect()->route('clientes.index');
         } else {
@@ -94,7 +142,7 @@ class ClienteController extends Controller
             return redirect()->route('clientes.show',$id);
         }
         
-        
+        //dd($elem['pago']);
        
     }
     public function desocupar(Request $request, $id)
@@ -130,6 +178,25 @@ class ClienteController extends Controller
         return view('clientes.edit')->with('cliente',$user);
     }
 
+    public function addservice(Request $request, $id)
+    {
+        $now = Carbon::now();
+        $now->day =1;
+        $servicio = Servicio::find($request->servicio);
+        $datos =[
+            'cliente_id'    =>  $id,
+            'servicio_id'   =>  $request->servicio,
+            'cantidad'      =>  $request->cantidad,
+            'fecha'         =>  $now->formatLocalized('%Y-%m-%d')
+        ];
+
+        $servicesadd = new ServiciosAdicionale($datos);
+        $servicesadd->save();
+        flash('Se agrego el servicio '.$servicio->servicio.' por $'.$servicio->precio*$request->cantidad.' durante '.$request->cantidad.' horas/unidades de forma exitosa','success');
+        //dd($servicio->servicio);
+        return redirect()->route('clientes.show',$id);
+
+    }
     /**
      * Update the specified resource in storage.
      *

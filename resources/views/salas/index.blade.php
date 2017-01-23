@@ -1,9 +1,15 @@
 @extends('templates.main')
 @section('tittle','lista de clientes')
 @section('content')
- <a href="{{ route('salas.create')}}" class="btn btn-info">Agregar sala</a>
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4>Salas</h4>
+      </div>
+      <div class="panel-body">
+         <a href="{{ route('salas.create')}}" class="btn btn-info">Agregar sala</a>
  <br>
-	<table class="table table-striped text-center">
+  <table class="table table-striped text-center">
         <thead>
           <tr>
               <th>Nombre</th>
@@ -17,7 +23,7 @@
 
         <tbody>
         @foreach ($salas as $element)
-        	<tr>
+          <tr>
             <td>{{ $element->nombre_sala}}</td>
             <td>
               @if ($element->estado_sala==1)
@@ -56,4 +62,7 @@
         </tbody>
       </table>
       {!! $salas->render() !!}
+      </div>
+    </div>
+  </div>
 @endsection

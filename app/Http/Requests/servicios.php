@@ -25,7 +25,7 @@ class servicios extends FormRequest
     {
         return [
             'servicio'      =>  'unique:servicios|min:4|max:100|required',
-            'fijo'          =>  'required'
+            'precio'          =>  'required'
         ];
     }
 }

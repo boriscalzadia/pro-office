@@ -3,16 +3,13 @@
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<a href="{{route('inmuebles.create')}}" class="btn btn-success">Crear Muebles</a>
-			</div>
-			<br>
-			<br>
-			<br>
+			
 			<div class="col-md-12">
 				<div class="panel panel-success">
 				<div class="panel-heading">Muebles</div>
-				<div class="panel-body text-center">
+				<div class="panel-body">
+					<a href="{{route('inmuebles.create')}}" class="btn btn-success">Crear Muebles</a>
+					<br>
 					@if (count($inm)>0)
 						<table class="table table-striped">
 							<thead>
@@ -54,7 +51,7 @@
 							</tbody>
 						</table>
 					@else
-						<h3>No hay muebles registrados</h3>
+						<h3 class="text-center">No hay muebles registrados</h3>
 					@endif
 				</div>
 			</div>

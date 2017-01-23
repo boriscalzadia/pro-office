@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServiciosAdicionalesTable extends Migration
+class CreateDetalleContratoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateServiciosAdicionalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('servicios_adicionales', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('detalle_contrato', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
+            $table->integer('contrato_id')->unsigned();
             $table->integer('servicio_id')->unsigned();
-            $table->integer('cantidad')->unsigned();
-            $table->date('fecha');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('contrato_id')->references('id')->on('contratos');
             $table->foreign('servicio_id')->references('id')->on('servicios');
         });
     }
@@ -33,6 +30,6 @@ class CreateServiciosAdicionalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servicios_adicionales');
+        Schema::dropIfExists('detalle_contrato');
     }
 }

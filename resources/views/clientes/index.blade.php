@@ -5,9 +5,9 @@
    <div class="panel panel-success">
      <div class="panel-heading"><h4>Clientes</h4></div>
      <div class="panel-body">
-       @if (count($clientes)>0)
          <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
       <br>
+       @if (count($clientes)>0)
       <table class="table table-striped">
         <thead>
           <tr>
@@ -34,10 +34,10 @@
               @endif
             </td>
             <td>{{ $element->correo_cliente}}</td>
-            <td>
-              <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash"></span></a>
-              <a href="{{route('clientes.show',$element->id)}}" class="btn btn-success btn-xs" ><span class="glyphicon glyphicon-list-alt"></span></a>
-              <a href="{{ route('clientes.edit', $element->id) }}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
+            <td> 
+              <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></span></a>
+              <a href="{{route('clientes.show',$element->id)}}" class="btn btn-success btn-xs"data-toggle="tooltip" data-placement="top" title="Detalles" ><span class="glyphicon glyphicon-list-alt"></span></a>
+              <a href="{{ route('clientes.edit', $element->id) }}" class="btn btn-info btn-xs"data-toggle="tooltip" data-placement="top" title="Editar" ><span class="glyphicon glyphicon-edit"></span></a>
             </td>
           </tr>
           <div class="modal fade" id="e{{ $element->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

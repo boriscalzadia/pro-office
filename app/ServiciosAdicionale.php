@@ -8,7 +8,7 @@ class ServiciosAdicionale extends Model
 {
     //
     protected $table = "servicios_adicionales";
-    protected $fillable = ['id_cliente','id_servicio','monto','fechaInicio','fechaFin','id_us'];
+    protected $fillable = ['cliente_id','servicio_id','cantidad','fecha'];
     public function users()
     {
         return $this->belongsTo('App\User');
