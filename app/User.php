@@ -14,14 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-<<<<<<< HEAD
     protected $fillable = [
-        'name', 'email', 'password', 'type'
+        'name', 'email', 'password',
     ];
-=======
-    protected $fillable = ['name', 'email', 'password','type'];
-    
->>>>>>> 6de9318f3ed4cc1b16ebfab4eb9bbae1546f9c92
     public function servicios_adicionales()
     {
         return $this->hasMany('App\ServiciosAdicionale');

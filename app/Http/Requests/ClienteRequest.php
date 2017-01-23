@@ -25,7 +25,8 @@ class ClienteRequest extends FormRequest
     {
         return [
             'nombre_cliente' => 'min:4|max:120|required',
-            'correo_cliente' => 'min:10|unique:clientes'
+            'correo_cliente' => 'min:10|unique:clientes',
+            'razon_cliente'  => 'min:4|max:120|required'
         ];
     }
 }

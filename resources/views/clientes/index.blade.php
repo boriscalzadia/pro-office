@@ -1,20 +1,8 @@
 @extends('templates.main')
 @section('tittle','Lista de clientes')
 @section('content')
-<<<<<<< HEAD
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-warning">
-            <div class="panel-heading"> <h3>Lista de Clientes </h3> </div>
-          
-                <div class="panel-body">
- <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
- <br>
-	<table class="table table-striped">
-=======
  <div class="container">
    <div class="panel panel-success">
      <div class="panel-heading"><h4>Clientes</h4></div>
@@ -23,7 +11,7 @@
          <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
       <br>
       <table class="table table-striped">
->>>>>>> 6de9318f3ed4cc1b16ebfab4eb9bbae1546f9c92
+
         <thead>
           <tr>
               <th data-field="name">Razón Social</th>
@@ -37,16 +25,11 @@
 
         <tbody>
         @foreach ($clientes as $element)
-<<<<<<< HEAD
-        	<tr>
+
+        	
             <td>{{ $element->razon_cliente}}</td>
-=======
-          <tr>
-            <td>{{ $element->nombre_cliente}}</td>
-            <td>{{ $element->ncomercial_cliente}}</td>
->>>>>>> 6de9318f3ed4cc1b16ebfab4eb9bbae1546f9c92
             <td>{{ $element->oencargado_cliente}}</td>
-            <td>{{ $element->type_cliente}}</td>
+            <td>{{ $element->type_cliente}}</td>            
             <td>
               @if ($element->tcontrato_cliente == "V")
                 <span>Virtual</span>
@@ -69,7 +52,7 @@
                   <h4 class="modal-title" id="myModalLabel">Eliminar Cliente</h4>
                 </div>
                 <div class="modal-body">
-                  <h4>Esta apunto de eliminar el cliente {{$element->razon_cliente}} ¿desea continuar?</h4>
+                  <h4>Esta apunto de Eliminar el cliente {{$element->razon_cliente}} ¿desea continuar?</h4>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
