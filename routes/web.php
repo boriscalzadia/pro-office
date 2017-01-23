@@ -29,6 +29,10 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses'	=>	'ClienteController@desocupar',
 		'as'	=>	'clientes.desocupar'
 		]);
+	Route::post('clientes/{id}/addservicios',[
+		'uses'	=>	'ClienteController@addservice',
+		'as'	=>	'clientes.addservice'
+		]);
 	Route::resource("salas",'SalasController');
 	Route::get("salas/{id}/destroy",[
 		'uses'	=>	'SalasController@destroy',

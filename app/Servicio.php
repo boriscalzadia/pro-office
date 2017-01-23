@@ -8,7 +8,7 @@ class Servicio extends Model
 {
     protected $table = "servicios";
 
-    protected $fillable = ['servicio','fijo'];
+    protected $fillable = ['servicio','precio','descripcion'];
 
     public function serviciosadicionales()
     {

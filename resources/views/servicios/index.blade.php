@@ -7,7 +7,7 @@
         <thead>
           <tr>
               <th data-field="name">Nombre</th>
-              <th data-field="name">Fijo</th>
+              <th data-field="name">Precio</th>
               <th data-fiekd="opciones"> Opciones</th>
           </tr>
         </thead>
@@ -16,13 +16,7 @@
         @foreach ($servicios as $element)
         	<tr>
             <td>{{ $element->servicio}}</td>
-            <td>
-              @if ($element->fijo== 1)
-                <span>Si</span>
-              @else
-                <span>No</span>
-              @endif
-            </td>
+            <td>${{ $element->precio}}</td>
             <td>
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}" ><span class="glyphicon glyphicon-trash"></span></a>
               {{-- <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#s{{ $element->id }}" ><span class="glyphicon glyphicon-list-alt"></span></a> --}}
