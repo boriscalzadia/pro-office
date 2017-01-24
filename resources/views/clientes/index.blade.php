@@ -4,8 +4,8 @@
 
 
  <div class="container">
-   <div class="panel panel-success">
-     <div class="panel-heading"><h4>Clientes</h4></div>
+   <div class="panel panel-warning">
+     <div class="panel-heading"><h3>Clientes</h3></div>
      <div class="panel-body">
          <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
       <br>
@@ -15,9 +15,10 @@
         <thead>
           <tr>
               <th data-field="name">Razón Social</th>
-              <th data-field="nencargado">Encargado</th>
+              <th data-field="name">Nombre </th>
               <th data-field="name">Estado Legal</th>
               <th data-field="tipo">Tipo contrato</th>
+              <th data-field="nencargado">Encargado</th>
               <th data-field="correo">Correo</th>
               <th data-fiekd="opciones"> Opciones</th>
           </tr>
@@ -28,7 +29,7 @@
 
         	
             <td>{{ $element->razon_cliente}}</td>
-            <td>{{ $element->oencargado_cliente}}</td>
+            <td>{{ $element->nombre_cliente}}</td>
             <td>{{ $element->type_cliente}}</td>            
             <td>
               @if ($element->tcontrato_cliente == "V")
@@ -37,6 +38,7 @@
                 <span>Fisico</span>
               @endif
             </td>
+            <td> {{ $element->oencargado_cliente}}</td>
             <td>{{ $element->correo_cliente}}</td>
             <td> 
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></span></a>

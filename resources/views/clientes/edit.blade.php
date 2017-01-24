@@ -18,7 +18,7 @@
         </div>
         <div class="form-group col-md-6">
         {!! Form::label('nit_cliente','Nit del cliente')!!}
-        {!! Form::text('nit_cliente',$cliente->nit_cliente,['class' => 'validate form-control','placeholder'=>'Nit del cliente','required' => 'required']) !!}
+        {!! Form::text('nit_cliente',$cliente->nit_cliente,['class' => 'validate form-control','placeholder'=>'0000-000000-000-0','required' => 'required']) !!}
         </div>
         <div class="form-group col-md-6">
         {!! Form::label('giro_cliente','Giro')!!}
@@ -33,13 +33,19 @@
         {!! Form::label('nombre_cliente','Nombre Completo')!!}
         {!! Form::text('nombre_cliente',$cliente->nombre_cliente,['class' => 'validate form-control','placeholder'=>'Nombre Completo','required' => 'required']) !!}
         </div>
+
+
         <div class="form-group col-md-6">
         {!! Form::label('type_cliente', 'Tipo')!!}
-        {!!Form::select('type_cliente',  [ ''=> 'Seleccione Tipo de Cliente..', 'Representante Legal' => 'Representante Legal', 'Persona Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
+        {!!Form::select('type_cliente',  [ ''=> 'Seleccione Tipo de Cliente..', 'Representante Legal' => 'Representante Legal', 'Persona Natural' =>'Persona Natural'], $cliente->type_cliente, ['class' => 'form-control']) !!}            
         </div>
         <div class="form-group col-md-6">
-        {!! Form::label('dui_cliente','Dui u Otro')!!}
-        {!! Form::text('dui_cliente',$cliente->dui_cliente,['class' => 'validate form-control','placeholder'=>'Documento de Identificación','required' => 'required']) !!}
+        {!! Form::label('docu_cliente', 'Tipo de Documento')!!}
+        {!!Form::select('docu_cliente',  [ ''=> 'Seleccione Tipo de Documento..', 'DUI' => 'DUI', 'Otro Documento' =>'Otro Documento'], $cliente->docu_cliente, ['class' => 'form-control']) !!}            
+        </div>
+        <div class="form-group col-md-6">
+        {!! Form::label('numdocumento_cliente','Dui u Otro')!!}
+        {!! Form::text('numdocumento_cliente',$cliente->numdocumento_cliente,['class' => 'validate form-control','placeholder'=>'Documento de Identificación','required' => 'required']) !!}
         </div>
                                    
         <div class="form-group col-md-6">
@@ -61,7 +67,7 @@
         {!! Form::text('correo_cliente',$cliente->correo_cliente,['class' => 'validate form-control','placeholder'=>'ejemplo@ejemplo','required' => 'required']) !!}
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
         {!! Form::label('oencargado_cliente','Nombre del encargado de la oficina')!!}
         {!! Form::text('oencargado_cliente',$cliente->oencargado_cliente,['class' => 'validate form-control','placeholder'=>'Nombre del encargado de la oficina','required' => 'required']) !!}
         </div>
@@ -139,7 +145,7 @@
 
         <div class="form-group col-md-6">
         {!! Form::label('tcontrato_cliente', 'Tipo de contrato') !!}
-        {!! Form::select('tcontrato_cliente', [''=> 'Seleccione Tipo de Contato..','V'=> 'Virtual', 'F' => 'Fisico'],null,['class'=>'form-control']) !!}
+        {!! Form::select('tcontrato_cliente', [''=> 'Seleccione Tipo de Contato..','V'=> 'Virtual', 'F' => 'Fisico'],$cliente->tcontrato,['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group col-md-6">
@@ -153,14 +159,9 @@
 
         <div class="form-group col-md-6">
         {!! Form::label ('fechain_cliente','Fecha de Inicio del Contrato')!!}
-        {!! Form::text('fechain_cliente',$cliente->fechain_cliente,['class' => 'validate form-control datepicker','placeholder'=>'','required' => 'required']) !!}
+        {{Form::date('fechain_cliente', \Carbon\Carbon::now(),['class'=>'form-control'])}}
         </div>
         
-
-<center><h3> Adicionales </h3></center>
-
-
-
 
         <div class="form-group">   
             {!! Form::submit ('Editar', ['class' => 'btn btn-success'])!!}

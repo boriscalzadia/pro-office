@@ -48,7 +48,7 @@ class ClienteController extends Controller
         
         $cliente = new Cliente($request->all());
         $cliente->save();
-        Flash::success("se ha registrado el cliente " . $cliente->razon_cliente . " de forma exitosa");
+        Flash::success("Se ha registrado el cliente " . $cliente->razon_cliente . " de forma exitosa");
         return redirect()->route('clientes.index');
     }
 

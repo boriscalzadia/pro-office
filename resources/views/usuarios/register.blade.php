@@ -17,7 +17,7 @@
                 {!! Form::label('password','Contraseña') !!}
                 {!! Form::password('password',['class'=>'form-control','placeholder'=>'**********'])!!}
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6 col-sm-12 col-lg-6">
         {!! Form::label('type', 'Tipo')!!}
         {!!Form::select('type',  [ ''=> 'Seleccione un Nivel..', 'Usuario' => 'Usuario', 'Administrador' =>'Administrador', 'Cliente' => 'Cliente'], null, ['class' => 'form-control'])!!}            
         </div>
