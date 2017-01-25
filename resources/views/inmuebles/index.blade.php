@@ -6,7 +6,7 @@
 			
 			<div class="col-md-12">
 				<div class="panel panel-success">
-				<div class="panel-heading">Muebles</div>
+				<div class="panel-heading"><h3 class="text-center">Muebles</h3></div>
 				<div class="panel-body">
 					<a href="{{route('inmuebles.create')}}" class="btn btn-success">Crear Muebles</a>
 					<br>

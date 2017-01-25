@@ -1,9 +1,13 @@
 @extends('templates.main')
 @section('tittle','lista de clientes')
 @section('content')
- <a href="{{ route('servicios.create')}}" class="btn btn-info">Agregar servicios</a>
- <br>
-	<table class="table table-striped">
+  <div class="panel panel-success">
+    <div class="panel-heading"><h3 class="text-center">Servicios</h3></div>
+    <div class="panel-body">
+    <a href="{{ route('servicios.create')}}" class="btn btn-info">Agregar servicios</a>
+    <br>
+      @if (count($servicios)>0)
+        <table class="table table-striped">
         <thead>
           <tr>
               <th data-field="name">Nombre</th>
@@ -14,7 +18,7 @@
 
         <tbody>
         @foreach ($servicios as $element)
-        	<tr>
+          <tr>
             <td>{{ $element->servicio}}</td>
             <td>${{ $element->precio}}</td>
             <td>
@@ -44,4 +48,11 @@
         </tbody>
       </table>
       {!! $servicios->render() !!}
+      @else
+        <h4 class="text-center">No existe ningun servicio</h4>
+      @endif
+    </div>
+  </div>
+ 
+	
 @endsection

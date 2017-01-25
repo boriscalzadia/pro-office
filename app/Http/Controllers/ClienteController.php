@@ -105,7 +105,7 @@ class ClienteController extends Controller
             'fechaini'      =>  $request->fechaini,
             'fechapago'     =>  $request->fechapago
         ];
-        if (($inicio->diffInMonths($fin))>2) {
+        if ((count($inicio->diffInMonths($fin))>0&&$cliente->tcontrato_cliente=='V')||(count($inicio->diffInMonths($fin))>5&&$cliente->tcontrato_cliente=='F')) {
             if(count($request->servicios)>0){
                 foreach ($request->servicios as $key) {
                     $detalle = Servicio::where([

@@ -79,10 +79,7 @@
 								{{Form::label('id','Elija la sala')}}
 								{{Form::select('id',$salas,null,['class'=>'form-control'])}}
 							</div>
-							<div class="form-group">
-								{!! Form::label('servicios', 'Elija sus servicios') !!}
-		        				{!! Form::select('servicios[]', $servicio,null,['class'=>'form-control','multiple'=>'','size'=>'5']) !!}
-							</div>
+							
 							@if ($cliente->tcontrato_cliente == "V")
 								<div class="form-group ">
 									{{Form::label('tipo','Tipo contrato')}}
@@ -93,6 +90,10 @@
 									{{Form::number('horas',null,['class'=>'form-control'])}}
 								</div>
 							@else
+								<div class="form-group">
+									{!! Form::label('servicios', 'Elija sus servicios') !!}
+			        				{!! Form::select('servicios[]', $servicio,null,['class'=>'form-control','multiple'=>'','size'=>'5']) !!}
+								</div>
 								<div class="form-group ">
 									{{Form::label('tipo','Tipo contrato')}}
 									{{Form::text('tipo','Fisico',['class'=>'form-control','disabled'=>'disabled'])}}
