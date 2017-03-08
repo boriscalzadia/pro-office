@@ -11,16 +11,24 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                         @else
                             <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
-                            <li><a href="{{route('clientes.index')}}">Clientes</a></li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Salas <span class="caret"></span></a>
+                            
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Clientes<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{route('salas.index')}}">Administrar Salas</a></li>
+                                    <li><a href="{{route('clientes.index')}}">Administrar Clientes</a></li>
+                                    <li><a href="{{route('ofiusuarios.index')}}">Administrar Usuarios de Oficina</a></li>
+                                </ul>
+                            </li>   
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espacios<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{route('salas.index')}}">Administrar Espacios</a></li>
                                     <li><a href="{{route('inmuebles.index')}}">Administrar Muebles</a></li>
                                     {{-- <li><a href="{{route('detalles-salas.index')}}">Amueblar sala</a></li> --}}
                                 </ul>
                             </li>
                             <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
+                            <!--
                             <li><a href="{{ route('provedores.index')}}">Proveedores</a></li>
+                            -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
