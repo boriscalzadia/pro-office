@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-warning">
-            <div class="panel-heading"> <h3>Lista de Clientes </h3> </div>
+            <div class="panel-heading"> <h3>Editar Cliente </h3> </div>
           
                 <div class="panel-body">
     <h4>Editar cliente</h4>
@@ -164,7 +164,7 @@
         
 
         <div class="form-group">   
-            {!! Form::submit ('Editar', ['class' => 'btn btn-success'])!!}
+            {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
  </div>
  </div>

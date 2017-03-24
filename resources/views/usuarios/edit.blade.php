@@ -14,7 +14,7 @@
           
                 <div class="panel-body">
 
- {!! Form::open(['route' => ['usuarios.update', $user], 'method' => 'PUT']) !!}
+ {!! Form::open(['route' => ['usuarios.update', $user->id], 'method' => 'PUT']) !!}
 		<div class="form-group">
 			{!! Form::label('name', 'Nombre')!!}
 			{!! Form::text('name', $user->name, ['class' => 'form-control', 'placeholder'=> 'Nombre Completo', 'required'])!!}
@@ -31,7 +31,7 @@
 		</div>
 		
 		<div class="form-group">
-			{!! Form::submit ('Editar', ['class' => 'btn btn-success'])!!}
+			{!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
 		</div>
 		</div>
 		</div>

@@ -1,13 +1,14 @@
 @extends('templates.main')
 @section('tittle','lista de clientes')
 @section('content')
-  <div class="container">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h4>Salas</h4>
-      </div>
-      <div class="panel-body">
-         <a href="{{ route('salas.create')}}" class="btn btn-info">Agregar sala</a>
+   <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3>Espacios </h3> </div>
+          
+                <div class="panel-body">
+         <a href="{{ route('salas.create')}}" class="btn btn-info">Nuevo Espacio</a>
  <br>
   <table class="table table-striped text-center">
         <thead>

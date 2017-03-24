@@ -24,4 +24,9 @@ class Cliente extends Model
         # code...
         return $this->hasMany('App\ServiciosAdicionale');
     }
+
+    public function ofiusuario()
+    {
+        return $this-hasMany('App\Ofiusuario');
+    }
 }

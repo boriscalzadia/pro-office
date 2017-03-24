@@ -1,11 +1,11 @@
 @extends('templates.main')
 @section('tittle','Crear Cliente')
-@section('content')
+@section('content') 
     <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-warning">
-            <div class="panel-heading"> <h3>Crear Cliente </h3> </div>
+            <div class="panel-heading"> <h3>Nuevo Cliente </h3> </div>
           
                 <div class="panel-body">
         {!! Form::open(['route' =>'clientes.store', 'method'=>'POST']) !!}
@@ -13,30 +13,52 @@
        <center><h3> Datos Generales</h3></center>
 
         <div class="form-group col-md-6">
-            {!! Form::label('razon_cliente', 'Razon Social')!!}
-            {!! Form::text('razon_cliente', null, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V', 'required'])!!}
+        {!! Form::label('type_cliente', 'Estado Legal')!!}
+        {!!Form::select('type_cliente',  [ ''=> 'Seleccione Tipo de Cliente..', 'Representante_legal' => 'Representante Legal', 'Persona Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
         </div>
+
         <div class="form-group col-md-6">
-        {!! Form::label('nit_cliente','Nit del cliente')!!}
-        {!! Form::text('nit_cliente',null,['class' => 'validate form-control','placeholder'=>'0000-000000-000-0','required' => 'required']) !!}
+            {!! Form::label('razon_cliente', 'Razon Social')!!}
+            {!! Form::text('razon_cliente', null, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('riva_cliente','Registro IVA')!!}
+        {!! Form::text('riva_cliente',null,['class' => 'validate form-control','placeholder'=>'000000-0']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('registrosociedad_cliente','Número de Registro de la Sociedad')!!}
+        {!! Form::text('registrosociedad_cliente',null,['class' => 'validate form-control','placeholder'=>'Numero de Registro']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('registrocredencial_cliente','Registro Credencial')!!}
+        {!! Form::text('registrocredencial_cliente',null,['class' => 'validate form-control','placeholder'=>'Numero de Registro']) !!}
+        </div>
+
+
+        <div class="form-group col-md-6">
+        {!! Form::label('nitsociedad_cliente','Nit de la Sociedad')!!}
+        {!! Form::text('nitsociedad_cliente',null,['class' => 'validate form-control','placeholder'=>'0000-000000-000-0','required' => 'required']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('numresgcontribuyente_cliente','Número de Registro del Contribuyente')!!}
+        {!! Form::text('numresgcontribuyente_cliente',null,['class' => 'validate form-control','placeholder'=>'','required' => 'required']) !!}
+        </div>
+
         <div class="form-group col-md-6">
         {!! Form::label('giro_cliente','Giro')!!}
         {!! Form::text('giro_cliente',null,['class' => 'validate form-control','placeholder'=>'Giro','required' => 'required']) !!}
         </div>
-        <div class="form-group col-md-6">
-        {!! Form::label('riva_cliente','Registro IVA')!!}
-        {!! Form::text('riva_cliente',null,['class' => 'validate form-control','placeholder'=>'000000-0','required' => 'required']) !!}
-        </div>
+        
 
         <div class="form-group col-md-6">
         {!! Form::label('nombre_cliente','Nombre Completo')!!}
         {!! Form::text('nombre_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Completo','required' => 'required']) !!}
         </div>
-        <div class="form-group col-md-6">
-        {!! Form::label('type_cliente', 'Estado Legal')!!}
-        {!!Form::select('type_cliente',  [ ''=> 'Seleccione Tipo de Cliente..', 'Representante Legal' => 'Representante Legal', 'Persona Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
-        </div>
+        
         <div class="form-group col-md-6">
         {!! Form::label('docu_cliente', 'Tipo de Documento')!!}
         {!!Form::select('docu_cliente',  [ ''=> 'Seleccione Tipo de Documento..', 'DUI' => 'DUI', 'Otro Documento' =>'Otro Documento'], null, ['class' => 'form-control']) !!}            
@@ -65,7 +87,7 @@
         {!! Form::text('correo_cliente',null,['class' => 'validate form-control','placeholder'=>'ejemplo@ejemplo','required' => 'required']) !!}
         </div>
 
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
         {!! Form::label('oencargado_cliente','Nombre del encargado de la oficina')!!}
         {!! Form::text('oencargado_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre del encargado de la oficina','required' => 'required']) !!}
         </div>
@@ -163,7 +185,7 @@
 
 
         <div class="form-group">   
-            {!! Form::submit ('Crear', ['class' => 'btn btn-success'])!!}
+            {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
  </div>
  </div>

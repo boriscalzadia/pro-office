@@ -1,10 +1,13 @@
 @extends('templates.main')
-@section('tittle','Crear Usuario')
+@section('tittle','Editar Servicio')
 @section('content')
-<div class="container">
-    <div class="panel panel-default">
-    <div class="panel-heading">Nuevo Servicio</div>
-    <div class="panel-body">
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3> Editar Servicio </h3> </div>
+          
+                <div class="panel-body">
     
     {!! Form::open(['route'=>['servicios.update',$servicio->id], 'method' =>'PUT']) !!}
         <div class="row">
@@ -17,10 +20,13 @@
                 {!! Form::select('fijo', ['1' => 'Si', '0' => 'No'],$servicio->fijo,['class'=>'form-control']) !!}
             </div>
             <div class="col-sm-12">
-                      {!! Form::submit('Crear', ['class' => 'btn btn-success ' ] ) !!}
+                      {!! Form::submit('Guardar', ['class' => 'btn btn-success ' ] ) !!}
             </div>
         </div>
     {!! Form::close() !!}
+    </div>
+    </div>
+    </div>
     </div>
     </div>
 </div>

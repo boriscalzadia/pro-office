@@ -7,14 +7,6 @@
 	<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/aps.css') }}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset ('datePicker/css/bootstrap-standalone.css')}}">
-	<script src= "{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
-	<!-- Languaje -->
-	<script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-
-	
 </head>
 <body class="grey darken-4">
 	@include('templates.navbar')
@@ -31,10 +23,14 @@
 			@include('templates.errors')
 		</div>
     	@yield('content')
+    </div>  
     </div>
-    </div>
+    
 	<script src="{{ asset('js/jquery.js')}}"></script>
 	<script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 	<script src="{{ asset('js/init.js')}}"></script>
+	<div class="contenedor-div">    
+    <img  class=" imagen-abajo-derecha" src="{{ asset('plugins/bootstrap/img/nt_.png')}}"  alt="NT">
+	</div>
 </body>
 </html>

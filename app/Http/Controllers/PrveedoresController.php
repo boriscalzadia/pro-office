@@ -19,10 +19,11 @@ class PrveedoresController extends Controller
     {
         $pro = Proveedor::orderBy('id','ASC')->paginate(5);
         $pros = DB::table('servicios')->get();
-        //dd($pros);
+       // dd($pros);
         return view('proveedores.index')
         ->with('pros',$pro)
         ->with('ser',$pros);
+
     }
 
     /**

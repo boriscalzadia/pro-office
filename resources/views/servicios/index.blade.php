@@ -1,7 +1,15 @@
 @extends('templates.main')
-@section('tittle','lista de clientes')
+@section('tittle','Lista de Servicios')
 @section('content')
- <a href="{{ route('servicios.create')}}" class="btn btn-info">Agregar servicios</a>
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3>Servicios</h3> </div>
+          
+                <div class="panel-body">
+ <a href="{{ route('servicios.create')}}" class="btn btn-info">Nuevo Servicio</a>
  <br>
 	<table class="table table-striped">
         <thead>

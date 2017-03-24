@@ -1,13 +1,14 @@
 @extends('templates.main')
-@section('tittle','lista de muebles de sala')
+@section('tittle','Lista de Muebles en Sala')
 @section('content')
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">Mubeles de la sala</div>
-					<div class="panel-body">
+	 <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3>Muebles </h3> </div>
+          
+                <div class="panel-body">
 					@if (count($detalles)>0)
 						<table class="table table-striped">
 							<thead>
@@ -85,6 +86,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 

@@ -18,4 +18,4 @@
         @endforeach
     </h3>
 </div>
-@endsection
+@endsection 
