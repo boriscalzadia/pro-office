@@ -26,9 +26,9 @@
                                 </ul>
                             </li>
                             <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
-                            <!--
-                            <li><a href="{{ route('provedores.index')}}">Proveedores</a></li>
-                            -->
+                            
+                            <li><a href="{{ route('provedores.index')}}">Consultas</a></li>
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
