@@ -27,7 +27,7 @@
                             </li>
                             <li><a href="{{ route('servicios.index') }}">Servicios</a></li>
                             
-                            <li><a href="{{ route('provedores.index')}}">Consultas</a></li>
+                            <li><a href="{{ route('provedores.index')}}">Consultas a Clientes</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
