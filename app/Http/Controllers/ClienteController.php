@@ -21,10 +21,10 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $clientes = Cliente::orderBy('id','ASC')->paginate(5);
+        $clientes = Cliente::Search($request->razon_cliente) -> orderBy('id','ASC')->paginate(5);
         return view('clientes.index')->with('clientes',$clientes);
     }
     /**

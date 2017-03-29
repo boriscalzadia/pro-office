@@ -1,14 +1,14 @@
 @extends('templates.main')
-@section('tittle','lista de inmuebles')
+@section('tittle','Lista de Muebles')
 @section('content')
-	<div class="container">
-		<div class="row">
-			
-			<div class="col-md-12">
-				<div class="panel panel-success">
-				<div class="panel-heading">Muebles</div>
-				<div class="panel-body">
-					<a href="{{route('inmuebles.create')}}" class="btn btn-success">Crear Muebles</a>
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-warning">
+            <div class="panel-heading"> <h3>Muebles </h3> </div>
+          
+                <div class="panel-body">
+					<a href="{{route('inmuebles.create')}}" class="btn btn-success">Nuevo Muebles</a>
 					<br>
 					@if (count($inm)>0)
 						<table class="table table-striped">

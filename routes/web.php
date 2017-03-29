@@ -70,6 +70,13 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses'	=>	'InmueblesController@destroy',
 		'as'	=>	'inmuebles.destroy'
 		]);
+	Route::resource("ofiusuarios",'OfiUsuariosController');
+	Route::get("ofiusuarios/{id}/destroy",[
+		'uses' => 'OfiUsuariosController@destroy',
+		'as'   => 'ofiusuarios.destroy'
+		]);
+	
+	
 	// Route::resource("detalles-salas",'DetalleSalasController');
 	// Route::get('detalles-salas/{id}/destroy',[
 	// 	'uses'	=>	'DetalleSalasController@destroy',

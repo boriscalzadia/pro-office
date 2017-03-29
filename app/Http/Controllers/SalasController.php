@@ -128,7 +128,7 @@ class SalasController extends Controller
     {
         $sala = new Sala($request->all());
         $sala->save();
-        Flash::success("se ha registrado la sala \"" . $sala->nombre_sala . "\" de forma exitosa");
+        Flash::success("se ha registrado el espacio \"" . $sala->nombre_sala . "\" de forma exitosa");
         return redirect()->route('salas.index');
     }
 
@@ -170,7 +170,7 @@ class SalasController extends Controller
         $cl = Sala::find($id);
         $cl->fill($request->all());
         $cl->save();
-        flash('La sala "'.$cl->nombre_sala.'" se modifico con exito','info');
+        flash('Espacio "'.$cl->nombre_sala.'" se modifico con exito','info');
         return redirect()->route('salas.index');
     }
 
@@ -186,10 +186,10 @@ class SalasController extends Controller
         $salas->detallessalas;
         $salas->clientes;
         if($salas->estado_sala == 0){
-            flash("La sala '".$salas->nombre_sala."' no se puede eliminar por que esta ocupada","warning");
+            flash("Espacio '".$salas->nombre_sala."' no se puede eliminar por que esta ocupada","warning");
         }
         else{
-            flash("La sala '".$salas->nombre_sala."' se elimino con exito","danger");
+            flash("Espacio '".$salas->nombre_sala."' se elimino con exito","danger");
             $salas->delete();
         }
         //dd($salas);

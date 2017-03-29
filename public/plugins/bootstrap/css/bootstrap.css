@@ -1086,7 +1086,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #ffe082;
+  background-color: #FE9A2E;
 }
 input,
 button,
@@ -6753,5 +6753,19 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.contenedor-div{
+  height: 100%;
+
+}
+.imagen-abajo-derecha{
+  width: 100px;
+  height:50;
+  border-radius: 150px;
+  border:25px solid #FE9A2E;
+  position: relative;
+  bottom: -150px;
+  right: 0px;
+  left: 0px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
