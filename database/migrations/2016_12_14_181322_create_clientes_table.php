@@ -16,7 +16,11 @@ class CreateClientesTable extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+<<<<<<< HEAD
             $table->enum('type_cliente', ['Persona Natural', 'Representante Legal']);
+=======
+            $table->enum('type_cliente',['Persona Natural','Persona Juridica']);
+>>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
             $table->string('razon_cliente');
             $table->string('riva_cliente')->unique();
             $table->string('registrosociedad_cliente')->unique();
@@ -25,7 +29,10 @@ class CreateClientesTable extends Migration
             $table->string('numresgcontribuyente_cliente')->unique();
             $table->string('giro_cliente',100);                                 
             $table->string('nombre_cliente', 100);
+<<<<<<< HEAD
             $table->string('nit_cliente')->unique();
+=======
+>>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
             $table->enum('docu_cliente',['DUI','Otra Identificacion']);
             $table->string('numdocumento_cliente');
             $table->string('direccion_cliente', 100);

@@ -25,10 +25,18 @@ class ClienteRequest extends FormRequest
     {
         return [
             'razon_cliente'         => 'min:4|max:120|required',
+<<<<<<< HEAD
             'giro_cliente'          => 'min:7|max:120|required',
             'riva_cliente'          => 'min:7|max:7|required',
             'nombre_cliente'        => 'min:4|max:120|required',
             'dui_cliente'           => 'max:9',
+=======
+            'nit_cliente'           => 'min:14|max:14|required',
+            'giro_cliente'          => 'min:10|max:120|required',
+            'riva_cliente'          => 'min:7|max:7|required',
+            'nombre_cliente'        => 'min:4|max:120|required',
+            'dui_cliente'           => 'min:9|max:9|required',
+>>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
             'direccion'             => 'max:150',
             'teldirecto_cliente'    => 'min:8|max:8|required',
             'celular_cliente'       => 'min:8|max:8|required',            

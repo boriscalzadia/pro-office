@@ -19,7 +19,11 @@
     {!! Form::close() !!}
 
     <!-- Fin del Buscador -->
+<<<<<<< HEAD
 @if (count($clientes)>0)
+=======
+
+>>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
 <br>
       <table class="table table-striped">
 
@@ -82,10 +86,13 @@
         </div>
         </div>
         </div>
+<<<<<<< HEAD
         {!! $ofiusuarios->render() !!}
         @else
          <center><h3>No hay Usuarios registrados</h3></center>
        @endif
+=======
+>>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
 
 </div>
 </div>
