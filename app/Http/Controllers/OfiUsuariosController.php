@@ -9,6 +9,7 @@ use App\Ofiusuario;
 use App\Cliente;
 use Laracast\Flash\Flash;
 
+
 class OfiUsuariosController extends Controller
 {
 	 /**
@@ -18,11 +19,8 @@ class OfiUsuariosController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
-        $ofiusuarios = Ofiusuario::Search($request ->razon_cliente) -> orderBy('id','ASC')->paginate(5);
-=======
+
         $ofiusuarios = Ofiusuario::Search($request ->razo_cliente) -> orderBy('id','ASC')->paginate(5);
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
         $clientes = DB::table('clientes')->get();
         //dd($pros);
         return view('ofiusuarios.index')
@@ -38,12 +36,9 @@ class OfiUsuariosController extends Controller
 
     public function create()
     {
-<<<<<<< HEAD
+
        $clientes = Cliente::orderBy('razon_cliente', 'ASC')->pluck('razon_cliente', 'id');
-=======
-       $clientes = Cliente::orderBy('id','razon_cliente' , 'ASC')->pluck('id');
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
-       
+       $clientes = Cliente::orderBy('id','razon_cliente' , 'ASC')->pluck('id');       
             return view('ofiusuarios.create')
             ->with("clientes",$clientes);
         

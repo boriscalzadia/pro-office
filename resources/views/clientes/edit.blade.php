@@ -12,20 +12,20 @@
     {!! Form::open(['route'=>['clientes.update',$cliente->id], 'method' =>'PUT']) !!}
     	<center><h3> Datos Generales</h3></center>
         
-
         <div class="form-group col-md-6">
-        {!! Form::label('type_cliente', 'Tipo')!!}
-        {!!Form::select('type_cliente',  [ ''=> 'Seleccione Tipo de Cliente..', 'RL' => 'Representante Legal', 'PN' =>'Persona Natural'], $cliente->type_cliente, ['class' => 'form-control']) !!}            
+        {!! Form::label('type_cliente', 'Estado Legal')!!}
+        {!!Form::select('type_cliente',$cliente->type_cliente ,[ 'Natural' => 'Persona Natural', 'Juridico' =>'Persona Juridica'], null, ['class' => 'form-control']) !!}            
         </div>
         
         <div class="form-group col-md-6">
-         {!! Form::label('razon_cliente', 'Razon Social')!!}
+         {!! Form::label('razon_cliente', 'Nombre de la Empresa')!!}
          {!! Form::text('razon_cliente', $cliente->razon_cliente, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
         <div class="form-group col-md-6">
         {!! Form::label('riva_cliente','Registro IVA')!!}
         {!! Form::text('riva_cliente',$cliente->riva_cliente,['class' => 'validate form-control','placeholder'=>'Registro IVA']) !!}
         </div>
+
 
         <div class="form-group col-md-6">
         {!! Form::label('registrosociedad_cliente', 'Numero de Registro de la Sociedad')!!}
@@ -39,7 +39,7 @@
 
         <div class="form-group col-md-6">
         {!! Form::label('nitsociedad_cliente','Nit de la Sociedad')!!}
-        {!! Form::text('nitsociedad_cliente',$cliente->nitsociedad_cliente,['class' => 'validate form-control','placeholder'=>'0000-000000-000-0','required' => 'required']) !!}
+        {!! Form::text('nitsociedad_cliente',$cliente->nitsociedad_cliente,['class' => 'validate form-control','placeholder'=>'00000000000000','required' => 'required']) !!}
         </div>
 
         <div class="form-group col-md-6">
@@ -61,13 +61,13 @@
 
         <div class="form-group col-md-6">
         {!! Form::label('nit_cliente','Nit de la Persona Natural/Representante Legal')!!}
-        {!! Form::text('nit_cliente',$cliente->nit_cliente,['class' => 'validate form-control','placeholder'=>'0000-000000-000-0','required' => 'required']) !!}
+        {!! Form::text('nit_cliente',$cliente->nit_cliente,['class' => 'validate form-control','placeholder'=>'00000000000000','required' => 'required']) !!}
         </div>
 
         
         <div class="form-group col-md-6">
         {!! Form::label('docu_cliente', 'Tipo de Documento')!!}
-        {!!Form::select('docu_cliente',  [ ''=> 'Seleccione Tipo de Documento..', 'DUI' => 'DUI', 'Otro Documento' =>'Otro Documento'], $cliente->docu_cliente, ['class' => 'form-control']) !!}            
+        {!!Form::select('docu_cliente',$cliente->docu_cliente,  [ ''=> 'Seleccione Tipo de Documento..', 'DUI' => 'DUI', 'Otro Documento' =>'Otro Documento'], $cliente->docu_cliente, ['class' => 'form-control']) !!}            
         </div>
         <div class="form-group col-md-6">
         {!! Form::label('numdocumento_cliente','Dui u Otro')!!}
@@ -98,7 +98,10 @@
         {!! Form::text('oencargado_cliente',$cliente->oencargado_cliente,['class' => 'validate form-control','placeholder'=>'Nombre del encargado de la oficina','required' => 'required']) !!}
         </div>
 
-<center><h3> Refencias Familiares</h3></center>
+        <div class="form-group col-md-12">
+        <center><h3> Refencias Familiares</h3></center>
+        </div>
+
         <div class="form-group col-md-3">
         {!! Form::label('ref1nombre_cliente','Nombre Completo')!!}
         {!! Form::text('ref1nombre_cliente',$cliente->ref1nombre_cliente,['class' => 'validate form-control','placeholder'=>'Nombre Completo','required' => 'required']) !!}
@@ -118,7 +121,7 @@
         {!! Form::text('ref1celular_cliente',$cliente->ref1celular_cliente,['class' => 'validate form-control','placeholder'=>'7777-7777','required' => 'required']) !!}
         </div>
         <div class="form-group col-md-3">
-        {!! Form::label('ref2nombre_cliente','Nombre Completo')!!}
+        {!! Form::label('ref2nombre_cliente','Nombre')!!}
         {!! Form::text('ref2nombre_cliente',$cliente->ref2nombre_cliente,['class' => 'validate form-control','placeholder'=>'Nombre Completo']) !!}
         </div>
 
@@ -137,7 +140,9 @@
         </div>
 
 
-<center><h3> Refencias Personales</h3></center>
+        <div class="form-group col-md-12">
+        <center><h3> Refencias Personales</h3></center>
+        </div>
 
         <div class="form-group col-md-6">
         {!! Form::label('ref1per_nombre_cliente','Nombre Completo')!!}
@@ -167,7 +172,9 @@
         </div>
 
 
-<center><h3> Datos de Oficina </h3></center>
+        <div class="form-group col-md-12">
+        <center><h3> Datos de Oficina </h3></center>
+        </div>
 
         <div class="form-group col-md-6">
         {!! Form::label('tcontrato_cliente', 'Tipo de contrato') !!}
@@ -189,7 +196,7 @@
         </div>
         
 
-        <div class="form-group">   
+        <div class="form-group col-md-12">   
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
  </div>
