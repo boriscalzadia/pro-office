@@ -70,6 +70,11 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses'	=>	'InmueblesController@destroy',
 		'as'	=>	'inmuebles.destroy'
 		]);
+	Route::resource("historial",'HistorialController');
+	Route::get("historial/{id}/destroy",[
+		'uses'	=>	'HistorialController@destroy',
+		'as'	=>	'historial.destroy'
+		]);
 	Route::resource("ofiusuarios",'OfiUsuariosController');
 	Route::get("ofiusuarios/{id}/destroy",[
 		'uses' => 'OfiUsuariosController@destroy',
