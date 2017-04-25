@@ -25,7 +25,7 @@
           <tr>
               <th data-field="name">Razón Social</th>
               <th data-field="name">Nombre PN/RL</th>
-              <th data-field="name">Estado Legal</th>
+              <th data-field="name">Tipo Cliente</th>
               <th data-field="tipo">Tipo contrato</th>
               <th data-field="nencargado">Encargado</th>
               <th data-field="telefono">Teléfono</th>
