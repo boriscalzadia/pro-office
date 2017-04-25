@@ -29,7 +29,6 @@ class Cliente extends Model
     {
         return $this-hasMany('App\Ofiusuario');
     }
-<<<<<<< HEAD
 
     public function scopeSearch($query, $razon_cliente)
 
@@ -37,6 +36,5 @@ class Cliente extends Model
         
         return $query -> where('razon_cliente', 'LIKE', "%$razon_cliente%");
    }
-=======
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
+
 }

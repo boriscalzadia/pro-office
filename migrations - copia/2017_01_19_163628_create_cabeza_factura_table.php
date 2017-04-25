@@ -13,7 +13,7 @@ class CreateCabezaFacturaTable extends Migration
      */
     public function up()
     {
-        Schema::create('cabeza_facura', function (Blueprint $table) {
+        Schema::create('cabeza_factura', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
@@ -34,6 +34,6 @@ class CreateCabezaFacturaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cabeza_facura');
+        Schema::dropIfExists('cabeza_factura');
     }
 }

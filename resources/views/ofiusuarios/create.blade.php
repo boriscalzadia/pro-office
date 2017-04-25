@@ -16,19 +16,9 @@
             {!! Form::label('id_cliente', 'Nombre de la Empresa a la que Pertenece')!!}
             {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa', 'required'])!!}
         </div>
-
-<<<<<<< HEAD
-        <div class="form-group col-md-6">
-            {!! Form::label('name_ofiusuarios', 'Nombre Completo')!!}
-=======
-        <div class="form-group col-md-12">
-            {!! Form::label('razo_cliente', 'Nombre de la Empresa a la que Pertenece')!!}
-            {!! Form::select('razo_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa', 'required'])!!}
-        </div>
        
         <div class="form-group col-md-12">
             {!! Form::label('name_ofiusurios', 'Nombre Completo')!!}
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
             {!! Form::text('name_ofiusuarios', null, ['class' => 'validate form-control', 'placeholder'=> 'Nombre Completo', 'required'])!!}
         </div>
         <div class="form-group col-md-6">
@@ -82,7 +72,7 @@
        {!! Form::text('extension_ofiusuarios', null, ['class' => 'validate form-control', 'placeholder' => '2222', 'required'])!!}
        </div>
 
-        <center><h3> En Caso de Emergencia Llamar a:</h3></center>
+        <div class="form-group col-md-12"><center><h3> En Caso de Emergencia Llamar a:</h3></center></div>
 
        <div class="form-group col-md-12">
        {!! Form::label('numemergencia_ofiusuarios', 'Nombre Completo')!!}
@@ -121,7 +111,7 @@
 
         
 
-       <div class="form-group"> 
+       <div class="form-group col-md-12"> 
        <center>        
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
             </center>

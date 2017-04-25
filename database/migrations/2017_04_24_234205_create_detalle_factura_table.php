@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCabezaDetalleTable extends Migration
+class CreateDetalleFacturaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateCabezaDetalleTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_facura', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('detalle_factura', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cabeza_factura_id')->unsigned();
+            $table->timestamps();
+			$table->integer('cabeza_factura_id')->unsigned();
             $table->integer('servicio_id')->unsigned();
             $table->integer('cantidad')->unsigned();
             $table->double('ptotal',8,2);
-            $table->timestamps();
-            $table->foreign('cabeza_factura_id')->references('id')->on('cabeza_facura');
+            $table->foreign('cabeza_factura_id')->references('id')->on('cabeza_factura');
             $table->foreign('servicio_id')->references('id')->on('servicios');
         });
     }
@@ -33,6 +32,6 @@ class CreateCabezaDetalleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_facura');
+        Schema::dropIfExists('detalle_factura');
     }
 }

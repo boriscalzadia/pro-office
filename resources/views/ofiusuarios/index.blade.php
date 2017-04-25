@@ -19,11 +19,9 @@
     {!! Form::close() !!}
 
     <!-- Fin del Buscador -->
-<<<<<<< HEAD
-@if (count($clientes)>0)
-=======
 
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
+@if (count($clientes)>0)
+
 <br>
       <table class="table table-striped">
 
@@ -31,7 +29,7 @@
           <tr>
               <th> Nombre del Usuario </th>
               <th> Direccion </th>
-              <th> Municipio </th>
+              <th> Extension/Telefono </th>
               <th> Nombre de la Empresa</th>
               <th> Opciones</th>
 
@@ -46,7 +44,7 @@
         <tr>
           <td> {{$element->name_ofiusuarios}}</td>
           <td> {{$element->direccion_ofiusuarios}}</td>
-          <td> {{$element->municipio_ofiusuarios}}</td>
+          <td> {{$element->extension_ofiusuarios}}</td>
           <td> @foreach ($clientes as $elements)
               @if ($element->id_cliente==$elements->id)
                 {{$elements->razon_cliente}}
@@ -86,13 +84,12 @@
         </div>
         </div>
         </div>
-<<<<<<< HEAD
+
         {!! $ofiusuarios->render() !!}
         @else
          <center><h3>No hay Usuarios registrados</h3></center>
        @endif
-=======
->>>>>>> 71af118a14c483ec157da1d0fd7a6faadf7fe2b3
+
 
 </div>
 </div>
