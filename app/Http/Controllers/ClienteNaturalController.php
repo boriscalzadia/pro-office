@@ -3,18 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Cliente;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\ClienteRequest;
-use Illuminate\Support\Facades\DB;
-use App\Sala;
-use App\Contrato;
-use App\Servicio;
-use Carbon\Carbon;
-use App\ServiciosAdicionale;
-use App\detallecontrato;
 
-class ClienteController extends Controller
+
+class ClienteNaturalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,10 +19,10 @@ class ClienteController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $clientes = Cliente::Search($request->razon_cliente) -> orderBy('id','ASC')->paginate(5);
-        return view('clientes.index')->with('clientes',$clientes);
+        $clientes = Cliente::Search($request->nombre_comercial_cliente) -> orderBy('id','ASC')->paginate(5);
+        return view('clientenatural.index')->with('clientes',$clientes);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +30,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('clientes.create');
+        return view('clientenatural.create');
     }
 
     /**
@@ -43,14 +39,12 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
-    public function store(ClienteRequest $request)
+    public function store(Request $request)
     {
-        
         $cliente = new Cliente($request->all());
         $cliente->save();
-        Flash::success("Se ha registrado el cliente " . $cliente->razon_cliente . " de forma exitosa");
-        return redirect()->route('clientes.index');
+        Flash::success("Se ha registrado el cliente " . $cliente->nombre_comercial_cliente . " de forma exitosa");
+        return redirect()->route('clientenatural.index');
     }
 
     /**
@@ -88,7 +82,8 @@ class ClienteController extends Controller
                 ->with('allserv',$allserv)
                 ->with('serviadd',$servicesadd);
     }
-    public function asisala(Request $request, $id)
+
+public function asisala(Request $request, $id)
     {
         
         $cliente = Cliente::find($id);
@@ -173,11 +168,6 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $user = Cliente::find($id);
-        return view('clientes.edit')->with('cliente',$user);
-    }
 
     public function addservice(Request $request, $id)
     {
@@ -205,13 +195,32 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+         $user = Cliente::find($id);
+        return view('clientenatural.edit')->with('cliente',$user);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
-        $cl = Cliente::find($id);
+         $cl = Cliente::find($id);
         $cl->fill($request->all());
         $cl->save();
-        flash('El cliente '.$cl->razon_cliente.' se modifico con exito','info');
-        return redirect()->route('clientes.index');
+        flash('El cliente '.$cl->nombre_comercial_cliente.' se modifico con exito','info');
+        return redirect()->route('clientenatural.index');
     }
 
     /**
@@ -229,12 +238,11 @@ class ClienteController extends Controller
         if(count($clientes->salas)==0&&count($clientes->documentos)==0&&count($clientes->serviadd)==0)
         {
             $clientes->delete();
-            flash("se ha eliminado el cliente " . $clientes->razon_cliente . " de forma exitosa",'danger');
+            flash("se ha eliminado el cliente " . $clientes->nombre_comercial_cliente . " de forma exitosa",'danger');
         }
         else{
-            flash("No se ha eliminado el cliente " . $clientes->razon_cliente . " de forma exitosa <br>Si desea eliminar el cliente debe desocupar las salas",'danger');
+            flash("No se ha eliminado el cliente " . $clientes->nombre_comercial_cliente . " de forma exitosa <br>Si desea eliminar el cliente debe desocupar las salas",'danger');
         }
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientenatural.index');
     }
 }
-

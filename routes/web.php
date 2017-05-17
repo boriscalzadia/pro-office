@@ -75,6 +75,12 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function(){
 		'uses' => 'OfiUsuariosController@destroy',
 		'as'   => 'ofiusuarios.destroy'
 		]);
+
+	Route::resource("clientenatural",'ClienteNaturalController');
+	Route::get("clientenatural/{id}/destroy",[
+		'uses'  => 'ClienteNaturalController@destroy',
+		'as'	=> 'clientenatural.destroy'
+	]);
 	
 	
 	// Route::resource("detalles-salas",'DetalleSalasController');

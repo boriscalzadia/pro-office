@@ -11,12 +11,22 @@
         {!! Form::open(['route' =>'ofiusuarios.store', 'method' =>'POST']) !!}
 
        <center><h3> Datos Generales</h3></center>
-        
-        <div class="form-group col-md-12">
+
+       <div class="form-group col-md-6">
+        {!! Form::label('type_cliente_ofiusuario', 'Estado Legal')!!}
+        {!!Form::select('type_cliente_ofiusuario',  [ 'Natural' => 'Persona Natural', 'Juridico' =>'Persona Juridica'], null, ['class' => 'form-control']) !!}            
+        </div>
+               
+        <div  id= JURIDICO class="form-group col-md-12">
             {!! Form::label('id_cliente', 'Nombre de la Empresa a la que Pertenece')!!}
-            {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa', 'required'])!!}
+            {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa'])!!}
         </div>
        
+        <div  id= NATURAL class="form-group col-md-12">
+            {!! Form::label('id_cliente', 'Nombre de la Persona Natural')!!}
+            {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Persona'])!!}
+        </div>
+
         <div class="form-group col-md-12">
             {!! Form::label('name_ofiusurios', 'Nombre Completo')!!}
             {!! Form::text('name_ofiusuarios', null, ['class' => 'validate form-control', 'placeholder'=> 'Nombre Completo', 'required'])!!}
@@ -116,6 +126,31 @@
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
             </center>
         </div>
+
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#JURIDICO').hide();
+                $('#NATURAL').show();
+
+                var select  = $('#type_cliente_ofiusuario');
+
+                select.change(function(){
+                    select.val();
+                    if (select == 'NATURAL') { 
+                        $ ('#NATURAL').show();                       
+                        $ ('#JURIDICO').hide();
+                    }
+
+                    else {
+                        $ ('#JURIDICO').show();
+                        $ ('#NATURAL').hide();
+                    }
+
+                    
+                });
+            });
+        </script>
 
         </div>
        </div>

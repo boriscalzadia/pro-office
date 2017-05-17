@@ -5,19 +5,19 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-warning">
-            <div class="panel-heading"> <h3>Persona Juridica</h3> </div>
+            <div class="panel-heading"> <h3>Persona Natural </h3> </div>
           
                 <div class="panel-body">
-        {!! Form::open(['route' =>'clientes.store', 'method'=>'POST']) !!}
+        {!! Form::open(['route' =>'clientenatural.store', 'method'=>'POST']) !!}
 
     <center><h3> Datos Generales</h3></center>
 
         <div class="form-group col-md-6">
         {!! Form::label('type_cliente', 'Estado Legal')!!}
-        {!!Form::select('type_cliente',  [ 'Juridico' =>'Persona Juridica'], null, ['class' => 'form-control']) !!}            
+        {!!Form::select('type_cliente',  [ 'Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
         </div>
     
-        <div class="form-group col-md-6">
+        <div  id="Juridico" class="form-group col-md-6">
             {!! Form::label('razon_cliente', 'Nombre de la Empresa ')!!}
             {!! Form::text('razon_cliente', null, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
@@ -44,8 +44,8 @@
         </div>
 
         <div class="form-group col-md-6">
-        {!! Form::label('nombre_representante_natural_cliente','Representante Legal')!!}
-        {!! Form::text('nombre_representante_natural_cliente',null,['class' => 'validate form-control','placeholder'=>'Representante Legal']) !!}
+        {!! Form::label('nombre_representante_natural_cliente','Persona Natural')!!}
+        {!! Form::text('nombre_representante_natural_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Completo']) !!}
         </div>
 
         <div class="form-group col-md-6">
@@ -197,6 +197,13 @@
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
     
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#Juridico').hide();
+
+            });
+        </script>
 
  </div>
  </div>    

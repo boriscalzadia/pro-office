@@ -5,13 +5,14 @@
 
  <div class="container">
    <div class="panel panel-warning">
-     <div class="panel-heading"><h3>Clientes</h3></div>
+     <div class="panel-heading"><h3>Personas Juridicas</h3></div>
      <div class="panel-body">
-         <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
+         <a href="{{ route('clientes.create')}}" class="btn btn-warning"> Agregar Persona Juridica</a>
+         <a href="{{ route('clientenatural.create')}}" class="btn btn-warning"> Agregar Persona Natural</a>
 
 {!! Form::open(['route' => 'clientes.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
     <div class="input-group"> 
-      {!! Form::text ('razon_cliente', null, ['class' =>'form-control', 'placeholder' => 'Buscar Empresa..', 'aria-describedby' =>'search']) !!}
+      {!! Form::text ('nombre_comercial_cliente', null, ['class' =>'form-control', 'placeholder' => 'Buscar Empresa..', 'aria-describedby' =>'search']) !!}
       <span class="input-group-addon" id="search"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
     </div>
 
@@ -23,7 +24,7 @@
 
         <thead>
           <tr>
-              <th data-field="name">Razón Social</th>
+              <th data-field="name">Nombre Comercial</th>
               <th data-field="name">Nombre PN/RL</th>
               <th data-field="name">Tipo Cliente</th>
               <th data-field="tipo">Tipo contrato</th>
@@ -37,8 +38,8 @@
         @foreach ($clientes as $element)
 
         	
-            <td>{{ $element->razon_cliente}}</td>
-            <td>{{ $element->nombre_cliente}}</td>
+            <td>{{ $element->nombre_comercial_cliente}}</td>
+            <td>{{ $element->nombre_representante_natural_cliente}}</td>
             <td>{{ $element->type_cliente}}</td>            
             <td>
               @if ($element->tcontrato_cliente == "V")
@@ -76,6 +77,8 @@
         @endforeach
         </tbody>
       </table>
+
+
 
       </div>
       </div>

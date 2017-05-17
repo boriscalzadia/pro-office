@@ -16,6 +16,7 @@ class CreateOfiusuariosTable extends Migration
         Schema::create('ofiusuarios', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->enum('type_cliente_ofiusuarios', ['Natural', 'Juridico']);
 			$table->integer('id_cliente')->unsigned();
             $table->string('name_ofiusuarios');
             $table->string('DUI_ofiusuarios');

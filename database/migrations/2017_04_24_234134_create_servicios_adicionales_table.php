@@ -16,12 +16,13 @@ class CreateServiciosAdicionalesTable extends Migration
         Schema::create('servicios_adicionales', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-			$table->integer('cliente_id')->unsigned();
+            $table->integer('cliente_id')->unsigned();
             $table->integer('servicio_id')->unsigned();
             $table->integer('cantidad')->unsigned();
             $table->date('fecha');
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->foreign('servicio_id')->references('id')->on('servicios');
+            
         });
     }
 
