@@ -16,7 +16,8 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{route('clientes.index')}}"> Administrar Clientes</a></li>
                                     <li><a href="{{route('clientenatural.create')}}">Agregar Persona Natural </a></li>
-                                    <li><a href="{{route('clientes.create')}}"> Agragar Persona Jurididca</a></li>
+                                    <li><a href="{{route('clientes.create')}}"> Agregar Persona Jurididca</a></li>
+                                    <li><a href="{{route('ofiusuarios.index')}}">Administrar Usuarios de Oficina </a></li>
                                 </ul>
                             </li>   
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espacios<span class="caret"></span></a>

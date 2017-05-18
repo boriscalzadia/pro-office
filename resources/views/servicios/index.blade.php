@@ -9,7 +9,7 @@
             <div class="panel-heading"> <h3>Servicios</h3> </div>
           
                 <div class="panel-body">
- <a href="{{ route('servicios.create')}}" class="btn btn-info">Nuevo Servicio</a>
+ <a href="{{ route('servicios.create')}}" class="btn btn-warning">Nuevo Servicio</a>
  <br>
 	<table class="table table-striped">
         <thead>

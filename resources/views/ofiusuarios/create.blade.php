@@ -11,20 +11,10 @@
         {!! Form::open(['route' =>'ofiusuarios.store', 'method' =>'POST']) !!}
 
        <center><h3> Datos Generales</h3></center>
-
-       <div class="form-group col-md-6">
-        {!! Form::label('type_cliente_ofiusuario', 'Estado Legal')!!}
-        {!!Form::select('type_cliente_ofiusuario',  [ 'Natural' => 'Persona Natural', 'Juridico' =>'Persona Juridica'], null, ['class' => 'form-control']) !!}            
-        </div>
                
-        <div  id= JURIDICO class="form-group col-md-12">
-            {!! Form::label('id_cliente', 'Nombre de la Empresa a la que Pertenece')!!}
+        <div  class="form-group col-md-12">
+            {!! Form::label('id_cliente', 'Nombre Comercial de la Empresa')!!}
             {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa'])!!}
-        </div>
-       
-        <div  id= NATURAL class="form-group col-md-12">
-            {!! Form::label('id_cliente', 'Nombre de la Persona Natural')!!}
-            {!! Form::select('id_cliente', $clientes, null, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Persona'])!!}
         </div>
 
         <div class="form-group col-md-12">

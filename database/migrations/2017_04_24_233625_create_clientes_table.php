@@ -18,14 +18,14 @@ class CreateClientesTable extends Migration
             $table->timestamps();
             $table->enum('type_cliente', ['Natural', 'Juridico']);
             $table->string('razon_cliente');
-            $table->string('nombre_comercial_cliente');
+            $table->string('nombre_comercial_cliente')->unique();
             $table->string('nit_comercial_cliente')->unique();
-            $table->string('riva_cliente');
+            $table->string('riva_cliente')->unique();
             $table->string('giro_cliente',100);
-            $table->string('nombre_representante_natural_cliente')->unique();
+            $table->string('nombre_representante_natural_cliente');
             $table->enum('docu_cliente',['DUI','Otra Identificacion']);
             $table->string('numdocumento_cliente');
-            $table->string('nit_cliente')->unique();
+            $table->string('nit_cliente');
             $table->string('direccion_cliente', 100);
             $table->string('teldirecto_cliente');
             $table->string('celular_cliente');
@@ -49,6 +49,8 @@ class CreateClientesTable extends Migration
             $table->string('saludoper_cliente', 150);
             $table->date('fechain_cliente');
             $table->integer('plazo_cliente');
+            $table->enum('estado_cliente', ['Activo', 'Suspendido']);
+            $table->string('observacion_cliente');
                         
 
         });

@@ -4,7 +4,7 @@
 
 	<div class="col-md-12">
 	<div>
-		<a href="#" class="btn btn-success">Nuevo</a>
+		<a href="#" class="btn btn-warning">Nuevo</a>
 	</div>
 		<div class="panel panel-success">
 			<div class="panel-heading">Inicio</div>

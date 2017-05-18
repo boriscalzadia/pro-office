@@ -192,11 +192,41 @@
         {{Form::label('plazo_cliente','Plazo/Meses')}}
         {{Form::number('plazo_cliente',null,['class'=>'form-control','placeholder'=>'eje: 6'])}}
         </div>
+        
+
+         <div class="form-group col-md-6">
+        {!! Form::label('estado_cliente', 'Estado del Cliente')!!}
+        {!!Form::select('estado_cliente',  [ 'Activo' => 'Activo', 'Suspendido' => 'Suspendido'], null, ['class' => 'form-control']) !!}            
+        </div>
+        
+        <div id="Suspendido" class="form-group col-md-6">
+        {!! Form::label('observacion_cliente','Motivo del Cambio de Estado')!!}
+        {!! Form::text('observacion_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Completo']) !!}
+        </div>
 
         <div class="form-group col-md-12">   
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
     
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $('#Suspendido').hide();
+
+                var select = $ ('#estado_cliente');
+
+                select.change(function(){
+                    select.val();
+                    if (select== 'Activo') {
+                        $('#Suspendido').hide();
+                    }
+
+                    else {
+                        $ ('#Suspendido').show();
+                    }
+                });   
+            });
+        </script>
 
  </div>
  </div>    

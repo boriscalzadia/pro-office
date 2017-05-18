@@ -5,7 +5,7 @@
 
  <div class="container">
    <div class="panel panel-warning">
-     <div class="panel-heading"><h3>Personas Juridicas</h3></div>
+     <div class="panel-heading"><h3>Listado de Clientes</h3></div>
      <div class="panel-body">
          <a href="{{ route('clientes.create')}}" class="btn btn-warning"> Agregar Persona Juridica</a>
          <a href="{{ route('clientenatural.create')}}" class="btn btn-warning"> Agregar Persona Natural</a>
@@ -30,6 +30,7 @@
               <th data-field="tipo">Tipo contrato</th>
               <th data-field="nencargado">Encargado</th>
               <th data-field="telefono">Teléfono</th>
+              <th data-fiekd="estado">Estado Acutal</th>
               <th data-fiekd="opciones"> Opciones</th>
           </tr>
         </thead>
@@ -50,6 +51,7 @@
             </td>
             <td> {{ $element->oencargado_cliente}}</td>
             <td>{{ $element->teldirecto_cliente}}</td>
+            <td> {{ $element->estado_cliente}}</td>
             <td> 
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></span></a>
               <a href="{{route('clientes.show',$element->id)}}" class="btn btn-success btn-xs"data-toggle="tooltip" data-placement="top" title="Detalles" ><span class="glyphicon glyphicon-list-alt"></span></a>

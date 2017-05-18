@@ -20,7 +20,7 @@ class ClienteNaturalController extends Controller
     public function index(Request $request)
     {
         $clientes = Cliente::Search($request->nombre_comercial_cliente) -> orderBy('id','ASC')->paginate(5);
-        return view('clientenatural.index')->with('clientes',$clientes);
+        return view('clientes.index')->with('clientes',$clientes);
     }
 
     /**
