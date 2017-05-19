@@ -16,24 +16,39 @@
         {!! Form::label('type_cliente', 'Estado Legal')!!}
         {!!Form::select('type_cliente',  [ 'Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
         </div>
+<<<<<<< HEAD
 
         <div id="Juridico">
         <div  class="form-group col-md-6">
+=======
+    
+        <div  id="Juridico" class="form-group col-md-6">
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
             {!! Form::label('razon_cliente', 'Nombre de la Empresa ')!!}
             {!! Form::text('razon_cliente', null, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
 
+<<<<<<< HEAD
         <div  class="form-group col-md-6">
         {!! Form::label('nit_comercial_cliente','Nit de la Sociedad')!!}
         {!! Form::text('nit_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'00000000000000']) !!}
         </div>
         </div>
 
+=======
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         <div class="form-group col-md-6">
         {!! Form::label('nombre_comercial_cliente', 'Nombre Comercial')!!}
         {!! Form::text('nombre_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Comercial']) !!}
         </div>
 
+<<<<<<< HEAD
+=======
+        <div class="form-group col-md-6">
+        {!! Form::label('nit_comercial_cliente','Nit de la Sociedad')!!}
+        {!! Form::text('nit_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'00000000000000']) !!}
+        </div>
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
 
         <div class="form-group col-md-6">
         {!! Form::label('riva_cliente','Registro IVA')!!}

@@ -15,14 +15,32 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
+<<<<<<< HEAD:database/migrations/2016_12_14_181322_create_clientes_table.php
+<<<<<<< HEAD
+            $table->enum('type_cliente', ['Natural', 'Juridico']);
+=======
+            $table->enum('type_cliente', ['Persona Natural', 'Representante Legal']);
+>>>>>>> fea3c0d7fa227d821bd4731c28d49c11d5ad25c3
+=======
             $table->timestamps();
             $table->enum('type_cliente', ['Natural', 'Juridico']);
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b:database/migrations/2017_04_24_233625_create_clientes_table.php
             $table->string('razon_cliente');
-            $table->string('nit_comercial_cliente');
             $table->string('nombre_comercial_cliente')->unique();
+            $table->string('nit_comercial_cliente')->unique();
             $table->string('riva_cliente')->unique();
+<<<<<<< HEAD:database/migrations/2016_12_14_181322_create_clientes_table.php
+            $table->string('registrosociedad_cliente')->unique();
+            $table->string('registrocredencial_cliente')->unique();
+            $table->string('nitsociedad_cliente', 100)->unique();
+            $table->string('numresgcontribuyente_cliente')->unique();
+            $table->string('giro_cliente',100);                                 
+            $table->string('nombre_cliente', 100);
+            $table->string('nit_cliente')->unique();
+=======
             $table->string('giro_cliente',100);
             $table->string('nombre_representante_natural_cliente');
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b:database/migrations/2017_04_24_233625_create_clientes_table.php
             $table->enum('docu_cliente',['DUI','Otra Identificacion']);
             $table->string('numdocumento_cliente');
             $table->string('nit_cliente');

@@ -4,6 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+=======
+    "hash": "5cbc7a1876b623a4abe080aaac9481de",
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
     "content-hash": "7f1df86c21e1622584cdbd9152dcf6e5",
     "packages": [
         {
@@ -474,7 +478,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2017-03-24T16:31:06+00:00"
+=======
+            "time": "2017-03-24 16:31:06"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "laravelcollective/html",
@@ -611,7 +619,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2017-04-28T10:15:08+00:00"
+=======
+            "time": "2017-04-28 10:15:08"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "monolog/monolog",
@@ -1005,7 +1017,11 @@
                 "interactive",
                 "shell"
             ],
+<<<<<<< HEAD
             "time": "2017-05-17T06:49:19+00:00"
+=======
+            "time": "2017-05-17 06:49:19"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "ramsey/uuid",
@@ -1087,7 +1103,11 @@
                 "identifier",
                 "uuid"
             ],
+<<<<<<< HEAD
             "time": "2017-03-26T20:37:53+00:00"
+=======
+            "time": "2017-03-26 20:37:53"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1141,7 +1161,11 @@
                 "mail",
                 "mailer"
             ],
+<<<<<<< HEAD
             "time": "2017-05-01T15:54:03+00:00"
+=======
+            "time": "2017-05-01 15:54:03"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "symfony/console",
@@ -1319,7 +1343,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:58:48+00:00"
+=======
+            "time": "2017-05-01 14:58:48"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "symfony/finder",
@@ -2278,7 +2306,11 @@
                 "object",
                 "object graph"
             ],
+<<<<<<< HEAD
             "time": "2017-04-12T18:52:22+00:00"
+=======
+            "time": "2017-04-12 18:52:22"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2550,7 +2582,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2017-04-02T07:44:40+00:00"
+=======
+            "time": "2017-04-02 07:44:40"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2818,7 +2854,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2017-04-03T02:22:27+00:00"
+=======
+            "time": "2017-04-03 02:22:27"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3554,7 +3594,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-01T14:55:58+00:00"
+=======
+            "time": "2017-05-01 14:55:58"
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         },
         {
             "name": "webmozart/assert",

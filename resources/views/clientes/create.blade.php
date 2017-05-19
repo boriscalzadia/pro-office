@@ -23,24 +23,48 @@
         </div>
 
         <div class="form-group col-md-6">
+<<<<<<< HEAD
         {!! Form::label('nit_comercial_cliente','Nit')!!}
+=======
+        {!! Form::label('nombre_comercial_cliente', 'Nombre Comercial')!!}
+        {!! Form::text('nombre_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Comercial']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('nit_comercial_cliente','Nit de la Sociedad')!!}
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         {!! Form::text('nit_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'00000000000000']) !!}
         </div>
 
         <div class="form-group col-md-6">
+<<<<<<< HEAD
         {!! Form::label('nombre_comercial_cliente', 'Nombre Comercial')!!}
         {!! Form::text('nombre_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Comercial']) !!}
+=======
+        {!! Form::label('riva_cliente','Registro IVA')!!}
+        {!! Form::text('riva_cliente',null,['class' => 'validate form-control','placeholder'=>'0000000']) !!}
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         </div>
 
         
 
         <div class="form-group col-md-6">
+<<<<<<< HEAD
         {!! Form::label('riva_cliente','Registro IVA')!!}
         {!! Form::text('riva_cliente',null,['class' => 'validate form-control','placeholder'=>'0000000']) !!}
+=======
+        {!! Form::label('giro_cliente','Giro')!!}
+        {!! Form::text('giro_cliente',null,['class' => 'validate form-control','placeholder'=>'Giro']) !!}
         </div>
 
+        <div class="form-group col-md-6">
+        {!! Form::label('nombre_representante_natural_cliente','Representante Legal')!!}
+        {!! Form::text('nombre_representante_natural_cliente',null,['class' => 'validate form-control','placeholder'=>'Representante Legal']) !!}
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
+        </div>
 
         <div class="form-group col-md-6">
+<<<<<<< HEAD
         {!! Form::label('giro_cliente','Giro')!!}
         {!! Form::text('giro_cliente',null,['class' => 'validate form-control','placeholder'=>'Giro']) !!}
         </div>
@@ -71,6 +95,28 @@
         </div>
 
         <div class="form-group col-md-6">
+=======
+        {!! Form::label('docu_cliente', 'Tipo de Documento')!!}
+        {!!Form::select('docu_cliente',  [ ''=> 'Seleccione Tipo de Documento..', 'DUI' => 'DUI', 'Otra Identificacion' =>'Otra Identificacion'], null, ['class' => 'form-control']) !!}            
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('numdocumento_cliente','Numero de Identificación')!!}
+        {!! Form::text('numdocumento_cliente',null,['class' => 'validate form-control','placeholder'=>'Documento de Identificación','required' => 'required']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+        {!! Form::label('nit_cliente','Nit')!!}
+        {!! Form::text('nit_cliente',null,['class' => 'validate form-control','placeholder'=>'00000000000000','required' => 'required']) !!}
+        </div>
+
+        <div class="form-group col-md-6">
+            {!! Form::label('direccion_cliente', 'Direccion')!!}
+            {!! Form::text('direccion_cliente', null,['class' => 'validate form-control', 'placeholder' =>'Direccion'])!!}
+        </div>
+
+        <div class="form-group col-md-6">
+>>>>>>> 1925cd95807c4cb5237644436d908daed0b1e41b
         {!! Form::label('teldirecto_cliente','Telefono directo')!!}
         {!! Form::text('teldirecto_cliente',null,['class' => 'validate form-control','placeholder'=>'2222-2222','required' => 'required']) !!}
         </div>
