@@ -14,29 +14,23 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
-<<<<<<< HEAD
+            $table->timestamps();
             $table->enum('type_cliente', ['Natural', 'Juridico']);
-=======
-            $table->enum('type_cliente', ['Persona Natural', 'Representante Legal']);
->>>>>>> fea3c0d7fa227d821bd4731c28d49c11d5ad25c3
             $table->string('razon_cliente');
+            $table->string('nit_comercial_cliente');
+            $table->string('nombre_comercial_cliente')->unique();
             $table->string('riva_cliente')->unique();
-            $table->string('registrosociedad_cliente')->unique();
-            $table->string('registrocredencial_cliente')->unique();
-            $table->string('nitsociedad_cliente', 100)->unique();
-            $table->string('numresgcontribuyente_cliente')->unique();
-            $table->string('giro_cliente',100);                                 
-            $table->string('nombre_cliente', 100);
-            $table->string('nit_cliente')->unique();
+            $table->string('giro_cliente',100);
+            $table->string('nombre_representante_natural_cliente');
             $table->enum('docu_cliente',['DUI','Otra Identificacion']);
             $table->string('numdocumento_cliente');
+            $table->string('nit_cliente');
             $table->string('direccion_cliente', 100);
-            $table->string('teldirecto_cliente')->unique();
-            $table->string('celular_cliente')->unique();
-            $table->string('correo_cliente')->unique();            
-            $table->string('oencargado_cliente', 100);
+            $table->string('teldirecto_cliente');
+            $table->string('celular_cliente');
+            $table->string('correo_cliente');
+            $table->string('oencargado_cliente');
             $table->string('ref1nombre_cliente', 100);
             $table->string('ref1parentesco_cliente',50);
             $table->string('ref1telefono_cliente');
@@ -50,12 +44,15 @@ class CreateClientesTable extends Migration
             $table->string('ref1per_celular_cliente');
             $table->string('ref2per_nombre_cliente', 100);
             $table->string('ref2per_telefono_cliente');
-            $table->string('ref2per_celular_cliente');        
+            $table->string('ref2per_celular_cliente');
             $table->string('tcontrato_cliente',1);
             $table->string('saludoper_cliente', 150);
-            $table->integer('plazo_cliente');
             $table->date('fechain_cliente');
-            $table->timestamps();
+            $table->integer('plazo_cliente');
+            $table->enum('estado_cliente', ['Activo', 'Suspendido']);
+            $table->string('observacion_cliente');
+                        
+
         });
     }
 

@@ -5,13 +5,14 @@
 
  <div class="container">
    <div class="panel panel-warning">
-     <div class="panel-heading"><h3>Clientes</h3></div>
+     <div class="panel-heading"><h3>Listado de Clientes</h3></div>
      <div class="panel-body">
-         <a href="{{ route('clientes.create')}}" class="btn btn-info">Agregar Cliente</a>
+         <a href="{{ route('clientes.create')}}" class="btn btn-warning"> Agregar Persona Juridica</a>
+         <a href="{{ route('clientenatural.create')}}" class="btn btn-warning"> Agregar Persona Natural</a>
 
 {!! Form::open(['route' => 'clientes.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
     <div class="input-group"> 
-      {!! Form::text ('razon_cliente', null, ['class' =>'form-control', 'placeholder' => 'Buscar Empresa..', 'aria-describedby' =>'search']) !!}
+      {!! Form::text ('nombre_comercial_cliente', null, ['class' =>'form-control', 'placeholder' => 'Buscar Empresa..', 'aria-describedby' =>'search']) !!}
       <span class="input-group-addon" id="search"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
     </div>
 
@@ -23,12 +24,13 @@
 
         <thead>
           <tr>
-              <th data-field="name">Razón Social</th>
+              <th data-field="name">Nombre Comercial</th>
               <th data-field="name">Nombre PN/RL</th>
-              <th data-field="name">Estado Legal</th>
+              <th data-field="name">Tipo Cliente</th>
               <th data-field="tipo">Tipo contrato</th>
               <th data-field="nencargado">Encargado</th>
               <th data-field="telefono">Teléfono</th>
+              <th data-fiekd="estado">Estado Acutal</th>
               <th data-fiekd="opciones"> Opciones</th>
           </tr>
         </thead>
@@ -37,8 +39,8 @@
         @foreach ($clientes as $element)
 
         	
-            <td>{{ $element->razon_cliente}}</td>
-            <td>{{ $element->nombre_cliente}}</td>
+            <td>{{ $element->nombre_comercial_cliente}}</td>
+            <td>{{ $element->nombre_representante_natural_cliente}}</td>
             <td>{{ $element->type_cliente}}</td>            
             <td>
               @if ($element->tcontrato_cliente == "V")
@@ -49,6 +51,7 @@
             </td>
             <td> {{ $element->oencargado_cliente}}</td>
             <td>{{ $element->teldirecto_cliente}}</td>
+            <td> {{ $element->estado_cliente}}</td>
             <td> 
               <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#e{{ $element->id }}"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></span></a>
               <a href="{{route('clientes.show',$element->id)}}" class="btn btn-success btn-xs"data-toggle="tooltip" data-placement="top" title="Detalles" ><span class="glyphicon glyphicon-list-alt"></span></a>
@@ -76,6 +79,8 @@
         @endforeach
         </tbody>
       </table>
+
+
 
       </div>
       </div>

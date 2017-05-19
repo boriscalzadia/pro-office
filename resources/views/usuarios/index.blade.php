@@ -9,7 +9,7 @@
             <div class="panel-heading"><h3>Lista de Usuarios</h3></div>
           
                 <div class="panel-body">
- <a href="{{ route('usuarios.create')}}" class="btn btn-info">Agregar usuarios</a>
+ <a href="{{ route('usuarios.create')}}" class="btn btn-warning">Agregar usuarios</a>
  <br>
 	<table class="table table-striped">
         <thead>

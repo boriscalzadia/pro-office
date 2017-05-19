@@ -8,7 +8,7 @@
             <div class="panel-heading"> <h3>Espacios </h3> </div>
           
                 <div class="panel-body">
-         <a href="{{ route('salas.create')}}" class="btn btn-info">Nuevo Espacio</a>
+         <a href="{{ route('salas.create')}}" class="btn btn-warning">Nuevo Espacio</a>
  <br>
   <table class="table table-striped text-center">
         <thead>

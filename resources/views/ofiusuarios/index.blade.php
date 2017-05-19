@@ -6,7 +6,7 @@
    <div class="panel panel-warning">
      <div class="panel-heading"><h3>Usuarios de Oficina</h3></div>
      <div class="panel-body">
-         <a href="{{ route('ofiusuarios.create')}}" class="btn btn-info">Agregar Usuario de Oficina</a>
+         <a href="{{ route('ofiusuarios.create')}}" class="btn btn-warning">Agregar Usuario de Oficina</a>
 
     <!-- Busqueda de Empresas -->
 
@@ -29,8 +29,8 @@
           <tr>
               <th> Nombre del Usuario </th>
               <th> Direccion </th>
-              <th> Municipio </th>
-              <th> Nombre de la Empresa</th>
+              <th> Extension/Telefono </th>
+              <th> Nombre Comercial de la Empresa</th>
               <th> Opciones</th>
 
 
@@ -44,10 +44,10 @@
         <tr>
           <td> {{$element->name_ofiusuarios}}</td>
           <td> {{$element->direccion_ofiusuarios}}</td>
-          <td> {{$element->municipio_ofiusuarios}}</td>
+          <td> {{$element->extension_ofiusuarios}}</td>
           <td> @foreach ($clientes as $elements)
               @if ($element->id_cliente==$elements->id)
-                {{$elements->razon_cliente}}
+                {{$elements->nombre_comercial_cliente}}
               @endif
             @endforeach 
           </td>

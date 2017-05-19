@@ -20,7 +20,7 @@ class OfiUsuariosController extends Controller
     public function index(Request $request)
     {
 
-        $ofiusuarios = Ofiusuario::Search($request ->razo_cliente) -> orderBy('id','ASC')->paginate(5);
+        $ofiusuarios = Ofiusuario::Search($request ->nombre_comercial_cliente) -> orderBy('id','ASC')->paginate(5);
         $clientes = DB::table('clientes')->get();
         //dd($pros);
         return view('ofiusuarios.index')
@@ -37,11 +37,15 @@ class OfiUsuariosController extends Controller
     public function create()
     {
 
-       $clientes = Cliente::orderBy('razon_cliente', 'ASC')->pluck('razon_cliente', 'id');
-       $clientes = Cliente::orderBy('id','razon_cliente' , 'ASC')->pluck('id');       
+
+        $clientes = Cliente::orderBy('nombre_comercial_cliente', 'ASC')->pluck('nombre_comercial_cliente', 'id');
             return view('ofiusuarios.create')
             ->with("clientes",$clientes);
-        
+    
+       /**lientes = Cliente::orderBy('nombre_cliente', 'ASC')->pluck('nombre_cliente', 'id');
+            return view('ofiusuarios.create')
+            ->with ("clientes", $clientes);
+        */
     }
 
     /**
@@ -52,7 +56,6 @@ class OfiUsuariosController extends Controller
      */
     public function store( Request $request)
     {       
-
         $ofiusuarios = new Ofiusuario($request->all());
         $ofiusuarios->save();
         Flash('El Usuario "'.$ofiusuarios->name_ofiusuarios.'" se creo exitosamente',"success");
@@ -80,7 +83,7 @@ class OfiUsuariosController extends Controller
     public function edit($id)
     {
         $ofiusuarios= Ofiusuario::find($id);
-       $clientes = Cliente::orderBy('razon_cliente', 'ASC')->pluck('razon_cliente', 'id');
+       $clientes = Cliente::orderBy('nombre_comercial_cliente', 'ASC')->pluck('nombre_comercial_cliente', 'id');
        
             return view('ofiusuarios.edit')
             ->with("clientes",$clientes)

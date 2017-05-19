@@ -5,26 +5,28 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-warning">
-            <div class="panel-heading"> <h3>Persona Juridica</h3> </div>
+            <div class="panel-heading"> <h3>Persona Natural </h3> </div>
           
                 <div class="panel-body">
-        {!! Form::open(['route' =>'clientes.store', 'method'=>'POST']) !!}
+        {!! Form::open(['route' =>'clientenatural.store', 'method'=>'POST']) !!}
 
     <center><h3> Datos Generales</h3></center>
 
         <div class="form-group col-md-6">
         {!! Form::label('type_cliente', 'Estado Legal')!!}
-        {!!Form::select('type_cliente',  [ 'Juridico' =>'Persona Juridica'], null, ['class' => 'form-control']) !!}            
+        {!!Form::select('type_cliente',  [ 'Natural' =>'Persona Natural'], null, ['class' => 'form-control']) !!}            
         </div>
-    
-        <div class="form-group col-md-6">
+
+        <div id="Juridico">
+        <div  class="form-group col-md-6">
             {!! Form::label('razon_cliente', 'Nombre de la Empresa ')!!}
             {!! Form::text('razon_cliente', null, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
 
-        <div class="form-group col-md-6">
-        {!! Form::label('nit_comercial_cliente','Nit')!!}
+        <div  class="form-group col-md-6">
+        {!! Form::label('nit_comercial_cliente','Nit de la Sociedad')!!}
         {!! Form::text('nit_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'00000000000000']) !!}
+        </div>
         </div>
 
         <div class="form-group col-md-6">
@@ -32,7 +34,6 @@
         {!! Form::text('nombre_comercial_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Comercial']) !!}
         </div>
 
-        
 
         <div class="form-group col-md-6">
         {!! Form::label('riva_cliente','Registro IVA')!!}
@@ -46,8 +47,8 @@
         </div>
 
         <div class="form-group col-md-6">
-        {!! Form::label('nombre_representante_natural_cliente','Representante Legal')!!}
-        {!! Form::text('nombre_representante_natural_cliente',null,['class' => 'validate form-control','placeholder'=>'Representante Legal']) !!}
+        {!! Form::label('nombre_representante_natural_cliente','Persona Natural')!!}
+        {!! Form::text('nombre_representante_natural_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Completo']) !!}
         </div>
 
         <div class="form-group col-md-6">
@@ -196,22 +197,29 @@
         </div>
         
 
-         <div class="form-group col-md-6">
+        <div class="form-group col-md-6">
         {!! Form::label('estado_cliente', 'Estado del Cliente')!!}
         {!!Form::select('estado_cliente',  [ 'Activo' => 'Activo', 'Suspendido' => 'Suspendido'], null, ['class' => 'form-control']) !!}            
         </div>
         
-        <div id="Suspendido" class="form-group col-md-6">
+        <div id=Suspedido class="form-group col-md-6">
         {!! Form::label('observacion_cliente','Motivo del Cambio de Estado')!!}
         {!! Form::text('observacion_cliente',null,['class' => 'validate form-control','placeholder'=>'Nombre Completo']) !!}
         </div>
+        
 
         <div class="form-group col-md-12">   
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
     
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#Juridico').hide();
+
+            });
+
+
             $(document).ready(function(){
                 $('#Suspendido').hide();
 

@@ -1,7 +1,7 @@
 @extends('templates.main')
 @section('tittle','Crear Usuario')
 @section('content')
-<a href="{{ route('provedores.create')}}" class="btn btn-info">Agregar proveedor</a>
+<a href="{{ route('provedores.create')}}" class="btn btn-warning">Agregar proveedor</a>
  <br>
     <table class="table table-striped text-center">
         <thead>

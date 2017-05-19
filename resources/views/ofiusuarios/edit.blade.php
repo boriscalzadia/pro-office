@@ -14,7 +14,7 @@
        <center><h3> Datos Generales</h3></center>
         
         <div class="form-group col-md-12">
-            {!! Form::label('id_cliente', 'Nombre de la Empresa a la que Pertenece')!!}
+            {!! Form::label('id_cliente', 'Nombre Comercial de la Empresa')!!}
             {!! Form::select('id_cliente', $clientes,$ofiusuarios->id_cliente, ['class' => 'form-control', 'placeholder'=> 'Seleccione una Empresa', 'required'])!!}
         </div>
         <div class="form-group col-md-12">

@@ -9,22 +9,19 @@
           
                 <div class="panel-body">
 
-    {!! Form::open(['route'=>['clientes.update',$cliente->id], 'method' =>'PUT']) !!}
+    {!! Form::open(['route'=>['clientenatural.update',$cliente->id], 'method' =>'PUT']) !!}
     	<center><h3> Datos Generales</h3></center>
         
         <div class="form-group col-md-6">
         {!! Form::label('type_cliente', 'Estado Legal')!!}
-        {!!Form::select('type_cliente',  [ 'Juridico' =>'Persona Juridica', 'Natural' =>'Persona Natural'], $cliente->type_cliente, ['class' => 'form-control']) !!}            
+        {!!Form::select('type_cliente',  [ 'Natural' =>'Persona Natural'], $cliente->type_cliente, ['class' => 'form-control']) !!}            
         </div>
-        
-        <div id="Juridico">
-        <div  class="form-group col-md-6">
+    
+        <div id="Juridico" class="form-group col-md-6">
             {!! Form::label('razon_cliente', 'Nombre de la Empresa ')!!}
             {!! Form::text('razon_cliente', $cliente->razon_cliente, ['class' => 'validate form-control', 'placeholder'=> 'Ejemplo S.A de C.V'])!!}
         </div>
-        </div>
-        
-        <div id="Natural"></div>
+
         <div class="form-group col-md-6">
         {!! Form::label('nombre_comercial_cliente', 'Nombre Comercial')!!}
         {!! Form::text('nombre_comercial_cliente',$cliente->nombre_comercial_cliente,['class' => 'validate form-control','placeholder'=>'Nombre Comercial']) !!}
@@ -195,41 +192,20 @@
         {{Form::label('plazo_cliente','Plazo/Meses')}}
         {{Form::number('plazo_cliente',$cliente->plazo_cliente,['class'=>'form-control','placeholder'=>'eje: 6'])}}
         </div>
-        </div>
 
 
         <div class="form-group col-md-12">   
             {!! Form::submit ('Guardar', ['class' => 'btn btn-success'])!!}
         </div>
 
-         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script>
             $(document).ready(function() {
                 $('#Juridico').hide();
 
-                 var select = $('#type_cliente');
-
-                select.change(function(){
-                    select.val();
-                    if (select =='Natural') {
-                        $ ('#Juridico').hide();
-                        $('#Natural').show();
-                    }
-
-                    else {
-                        $ ('#Juridico').show();
-                        $ ('#Natural').hide();
-                        
-                    }
-
-                    
-                });
-
             });
         </script>
- </div>
- </div>
- </div>
  </div>
  </div>
     {!! Form::close() !!}

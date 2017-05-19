@@ -8,7 +8,7 @@
             <div class="panel-heading"> <h3>Muebles </h3> </div>
           
                 <div class="panel-body">
-					<a href="{{route('inmuebles.create')}}" class="btn btn-success">Nuevo Muebles</a>
+					<a href="{{route('inmuebles.create')}}" class="btn btn-warning">Nuevo Muebles</a>
 					<br>
 					@if (count($inm)>0)
 						<table class="table table-striped">
